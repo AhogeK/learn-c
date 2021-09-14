@@ -9,5 +9,6 @@ void firstInputAndOutput(void);
 void fileCopy(void);
 void verifyGetchar(void);
 void printEOF(void);
+void charCount(void);
 
 #endif //LEARN_C_1_5_H

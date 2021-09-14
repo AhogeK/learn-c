@@ -6,15 +6,16 @@
 int main()
 {
     printf("Hello, World!\n");
-//    fahrAndCelsius();
-//    floatFahrAndCelsius();
-//    celsiusToFahrenheit();
-//    forLoopPrint();
-//    forLoopCelsiusToFahrenheit();
-//    symbolConstants();
-//    firstInputAndOutput();
-//    fileCopy();
-//    verifyGetchar();
-    printEOF();
+    //    fahrAndCelsius();
+    //    floatFahrAndCelsius();
+    //    celsiusToFahrenheit();
+    //    forLoopPrint();
+    //    forLoopCelsiusToFahrenheit();
+    //    symbolConstants();
+    //    firstInputAndOutput();
+    //    fileCopy();
+    //    verifyGetchar();
+    //    printEOF();
+    charCount();
     return 0;
 }
