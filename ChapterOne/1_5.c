@@ -69,8 +69,26 @@ void rowCount()
 {
     int c, nl;
     nl = 0;
-    while((c = getchar()) != EOF)
+    while ((c = getchar()) != EOF)
         if (c == '\n')
             ++nl;
     printf("%d\n", nl);
+}
+
+/**
+ * 统计空格，制表符，换行符
+ */
+void statistic()
+{
+    long c, sn, bn, nn;
+    sn,bn,nn = 0;
+    while ((c = getchar()) != EOF) {
+        if (c == ' ')
+            ++sn;
+        if (c == '\b')
+            ++bn;
+        if (c == '\n')
+            ++nn;
+    }
+    printf("空格数量：%ld，退格数量：%ld，换行数量：%ld\n", sn, bn, nn);
 }

@@ -18,6 +18,7 @@ int main()
     // printEOF();
     // charCount();
     // charCountV2();
-    rowCount();
+    // rowCount();
+    statistic();
     return 0;
 }
