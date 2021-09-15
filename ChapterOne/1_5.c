@@ -52,9 +52,25 @@ void charCount()
     printf("%ld\n", nc);
 }
 
-void charCountV2() {
+/**
+ * 统计输入的字符数：版本2
+ */
+void charCountV2()
+{
     double nc;
-    for (nc = 0; getchar() != EOF; ++nc)
-        ;
+    for (nc = 0; getchar() != EOF; ++nc);
     printf("%.0f\n", nc);
+}
+
+/**
+ * 统计输入的行数
+ */
+void rowCount()
+{
+    int c, nl;
+    nl = 0;
+    while((c = getchar()) != EOF)
+        if (c == '\n')
+            ++nl;
+    printf("%d\n", nl);
 }

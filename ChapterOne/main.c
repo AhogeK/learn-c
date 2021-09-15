@@ -17,6 +17,7 @@ int main()
     // verifyGetchar();
     // printEOF();
     // charCount();
-    charCountV2();
+    // charCountV2();
+    rowCount();
     return 0;
 }
