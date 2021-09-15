@@ -20,6 +20,7 @@ int main()
     // charCountV2();
     // rowCount();
     // statistic();
-    copyOutput();
+    // copyOutput();
+    toEscString();
     return 0;
 }

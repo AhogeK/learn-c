@@ -3,6 +3,8 @@
 //
 #include <stdio.h>
 
+#define ESC_CHAR '\\'
+
 void firstInputAndOutput()
 {
     char c = getchar();
@@ -91,7 +93,7 @@ void statistic()
         if (c == '\n')
             ++nn;
     }
-    printf("空格数量：%ld，退格数量：%ld，换行数量：%ld\n", sn, bn, nn);
+    printf("空格数量：%ld\t退格数量：%ld\t换行数量：%ld\n", sn, bn, nn);
 }
 
 /**
@@ -110,5 +112,31 @@ void copyOutput()
         if (c == EOF)
             break;
         putchar(c);
+    }
+}
+
+/**
+ * 转译符号转转译字符串
+ */
+void toEscString() {
+    int c;
+    while ((c = getchar()) != EOF) {
+        switch (c)
+        {
+            case '\t':
+                putchar(ESC_CHAR);
+                putchar('t');
+                break;
+            case '\b':
+                putchar(ESC_CHAR);
+                putchar('b');
+                break;
+            case ESC_CHAR:
+                putchar(ESC_CHAR);
+                putchar(ESC_CHAR);
+            default:
+                putchar(c);
+                break;
+        }
     }
 }

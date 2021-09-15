@@ -14,5 +14,6 @@ void charCountV2(void);
 void rowCount(void);
 void statistic(void);
 void copyOutput(void);
+void toEscString(void);
 
 #endif //LEARN_C_1_5_H
