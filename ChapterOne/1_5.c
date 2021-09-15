@@ -81,8 +81,9 @@ void rowCount()
 void statistic()
 {
     long c, sn, bn, nn;
-    sn,bn,nn = 0;
-    while ((c = getchar()) != EOF) {
+    sn, bn, nn = 0;
+    while ((c = getchar()) != EOF)
+    {
         if (c == ' ')
             ++sn;
         if (c == '\b')
@@ -91,4 +92,20 @@ void statistic()
             ++nn;
     }
     printf("空格数量：%ld，退格数量：%ld，换行数量：%ld\n", sn, bn, nn);
+}
+
+void copyOutput()
+{
+    int c;
+    while ((c = getchar()) != EOF)
+    {
+        if (c == ' ') {
+            putchar(c);
+            while ((c = getchar()) == ' ')
+                ;
+        }
+        if (c == EOF)
+            break;
+        putchar(c);
+    }
 }

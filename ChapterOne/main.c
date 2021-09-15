@@ -19,6 +19,7 @@ int main()
     // charCount();
     // charCountV2();
     // rowCount();
-    statistic();
+    // statistic();
+    copyOutput();
     return 0;
 }
