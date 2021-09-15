@@ -94,6 +94,9 @@ void statistic()
     printf("空格数量：%ld，退格数量：%ld，换行数量：%ld\n", sn, bn, nn);
 }
 
+/**
+ * 输入复制到输出
+ */
 void copyOutput()
 {
     int c;
