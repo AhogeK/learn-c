@@ -15,5 +15,6 @@ void rowCount(void);
 void statistic(void);
 void copyOutput(void);
 void toEscString(void);
+void wordCount(void);
 
 #endif //LEARN_C_1_5_H

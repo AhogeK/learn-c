@@ -4,6 +4,8 @@
 #include <stdio.h>
 
 #define ESC_CHAR '\\'
+#define IN 1 /* 在单词内 */
+#define OUT 0 /* 在单词外 */
 
 void firstInputAndOutput()
 {
@@ -104,10 +106,10 @@ void copyOutput()
     int c;
     while ((c = getchar()) != EOF)
     {
-        if (c == ' ') {
+        if (c == ' ')
+        {
             putchar(c);
-            while ((c = getchar()) == ' ')
-                ;
+            while ((c = getchar()) == ' ');
         }
         if (c == EOF)
             break;
@@ -118,9 +120,11 @@ void copyOutput()
 /**
  * 转译符号转转译字符串
  */
-void toEscString() {
+void toEscString()
+{
     int c;
-    while ((c = getchar()) != EOF) {
+    while ((c = getchar()) != EOF)
+    {
         switch (c)
         {
             case '\t':
@@ -139,4 +143,26 @@ void toEscString() {
                 break;
         }
     }
+}
+
+/**
+ * 单词计数
+ */
+void wordCount()
+{
+    int c, nl, nw, nc, state;
+    state = OUT;
+    nl = nw = nc = 0;
+    while ((c = getchar()) != EOF) {
+        ++nc;
+        if (c == '\n')
+            ++nl;
+        if (c == ' ' || c == '\n' || c == '\t')
+            state = OUT;
+        else if (state == OUT) {
+            state = IN;
+            ++nw;
+        }
+    }
+    printf("行数：%d\t\t单词数：%d\t字符数：%d\n", nl, nw, nc);
 }
