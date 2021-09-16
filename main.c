@@ -8,6 +8,6 @@
 int main()
 {
     printf("Hello, World!\n");
-    array_1_6(fopen("/home/ahogek/Downloads/test.txt", "r"));
+    exercise_1_13(fopen("/home/ahogek/Downloads/test.txt", "r"));
     return 0;
 }

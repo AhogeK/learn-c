@@ -3,7 +3,8 @@
 //
 #include <stdio.h>
 
-void array_1_6(FILE *f) {
+void array_1_6(FILE *f)
+{
     int c, i, nwhite, nother;
     int ndigit[10];
 
@@ -25,4 +26,24 @@ void array_1_6(FILE *f) {
         printf(" %d", ndigit[i]);
     printf(", white space = %d, other = %d\n", nwhite, nother);
     fclose(f);
+}
+
+void exercise_1_13(FILE *f)
+{
+    int c, temp;
+    while ((c = fgetc(f)) != EOF)
+    {
+        if (c == ' ' || c == '\n' || c == '\t')
+        {
+            if (temp != ' ' && temp != '\n' && temp != '\t')
+            {
+                putchar('\n');
+                temp = c;
+            }
+        } else
+        {
+            putchar('*');
+            temp = c;
+        }
+    }
 }
