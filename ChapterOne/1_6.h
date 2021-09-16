@@ -16,4 +16,10 @@ void array_1_6(FILE *);
  */
 void exercise_1_13(FILE *);
 
+/**
+ * 练习 1-13
+ * 垂直直方图打印
+ */
+void exercise_1_13_2(FILE *);
+
 #endif //LEARN_C_1_6_H
