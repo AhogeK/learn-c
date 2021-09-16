@@ -22,4 +22,10 @@ void exercise_1_13(FILE *);
  */
 void exercise_1_13_2(FILE *);
 
+/**
+ * 练习 1-14
+ * 编写一个程序，打印输入中的各个字符出现频度的直方图
+ */
+void exercise_1_14(FILE *);
+
 #endif //LEARN_C_1_6_H
