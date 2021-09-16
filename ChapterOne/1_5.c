@@ -198,3 +198,25 @@ void unitTest(void)
         fputc('\n', f);
     fclose(f);
 }
+
+/**
+ * 练习 1-12
+ */
+void exercise_1_12()
+{
+    int c, state;
+    state = IN;
+    while ((c = getchar()) != EOF)
+    {
+        if (c == ' ' || c == '\t')
+            state = OUT;
+        else if (state == OUT)
+        {
+            state = IN;
+            putchar('\n');
+            putchar(c);
+        }
+        else
+            putchar(c);
+    }
+}

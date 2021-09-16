@@ -7,7 +7,6 @@
 int main()
 {
     printf("Hello, World!\n");
-    pointer_op_test();
-//    unitTest();
+    exercise_1_12();
     return 0;
 }
