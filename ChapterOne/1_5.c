@@ -177,14 +177,8 @@ void unitTest(void)
 {
     FILE *f;
     unsigned long i;
-    static char *ws = " \f\t\v";
     static char *al = "abcdefghijklmnopqrstuvwxyz";
-    static char *i5 = "a b c d e f g h i j k l m "
-                      "n o p q r s t u v w x y z "
-                      "a b c d e f g h i j k l m "
-                      "n o p q r s t u v w x y z "
-                      "a b c d e f g h i j k l m "
-                      "n\n";
+
     /* 输入一个没有字符的文件 */
     f = fopen("test0", "w");
     assert(f != NULL);
