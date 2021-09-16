@@ -16,5 +16,6 @@ void statistic(void);
 void copyOutput(void);
 void toEscString(void);
 void wordCount(void);
+void unitTest(void);
 
 #endif //LEARN_C_1_5_H

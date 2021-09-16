@@ -2,6 +2,7 @@
 // Created by ahogek on 9/13/21.
 //
 #include <stdio.h>
+#include <assert.h>
 
 #define ESC_CHAR '\\'
 #define IN 1 /* 在单词内 */
@@ -153,16 +154,53 @@ void wordCount()
     int c, nl, nw, nc, state;
     state = OUT;
     nl = nw = nc = 0;
-    while ((c = getchar()) != EOF) {
+    while ((c = getchar()) != EOF)
+    {
         ++nc;
         if (c == '\n')
             ++nl;
         if (c == ' ' || c == '\n' || c == '\t')
             state = OUT;
-        else if (state == OUT) {
+        else if (state == OUT)
+        {
             state = IN;
             ++nw;
         }
     }
     printf("行数：%d\t\t单词数：%d\t字符数：%d\n", nl, nw, nc);
+}
+
+/**
+ * 1.5.4 练习 1-11 单元测试
+ */
+void unitTest(void)
+{
+    FILE *f;
+    unsigned long i;
+    static char *ws = " \f\t\v";
+    static char *al = "abcdefghijklmnopqrstuvwxyz";
+    static char *i5 = "a b c d e f g h i j k l m "
+                      "n o p q r s t u v w x y z "
+                      "a b c d e f g h i j k l m "
+                      "n o p q r s t u v w x y z "
+                      "a b c d e f g h i j k l m "
+                      "n\n";
+    /* 输入一个没有字符的文件 */
+    f = fopen("test0", "w");
+    assert(f != NULL);
+    fclose(f);
+
+    /* 输入一个巨大的单词没有换行的文件 */
+    f = fopen("test1", "w");
+    assert(f != NULL);
+    for (i = 0; i < ((66000ul / 26) + 1); i++)
+        fputs(al, f);
+    fclose(f);
+
+    /* 输入一个包含大量空行的文件 */
+    f = fopen("test2", "w");
+    assert(f != NULL);
+    for (i = 0; i < 66000; i++)
+        fputc('\n', f);
+    fclose(f);
 }

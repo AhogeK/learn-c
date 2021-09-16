@@ -6,6 +6,6 @@
 int main()
 {
     printf("Hello, World!\n");
-    wordCount();
+//    unitTest();
     return 0;
 }
