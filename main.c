@@ -5,10 +5,11 @@
 #include "Personal/pointer_operator_test.h"
 #include "ChapterOne/1_6.h"
 #include "ChapterOne/1_7.h"
+#include "ChapterOne/1_8.h"
 
 int main()
 {
     printf("Hello, World!\n");
-    exercise_1_15();
+    printf("2^3=%d", powerv2(2, 3));
     return 0;
 }
