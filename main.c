@@ -9,6 +9,6 @@
 int main()
 {
     printf("Hello, World!\n");
-    printf("%d", power(2, 5));
+    exercise_1_15();
     return 0;
 }
