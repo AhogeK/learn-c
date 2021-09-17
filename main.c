@@ -4,10 +4,11 @@
 #include "ChapterOne/1_5.h"
 #include "Personal/pointer_operator_test.h"
 #include "ChapterOne/1_6.h"
+#include "ChapterOne/1_7.h"
 
 int main()
 {
     printf("Hello, World!\n");
-    exercise_1_14(fopen("/home/ahogek/Downloads/test.txt", "r"));
+    printf("%d", power(2, 5));
     return 0;
 }
