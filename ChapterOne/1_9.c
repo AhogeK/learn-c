@@ -11,6 +11,8 @@ int get_line(char line[], int maxline, FILE *f);
 /* copy函数: 将from复制到to;这里假定to足够大 */
 void copy(char to[], char from[]);
 
+int mgetline(char s[], int lim, FILE *f);
+
 /* 打印最长的输入行 */
 void char_array(FILE *f)
 {
@@ -49,4 +51,40 @@ void copy(char to[], char from[])
     i = 0;
     while ((to[i] = from[i]) != '\0')
         ++i;
+}
+
+void exercise_1_6(FILE *f)
+{
+    int len, max;
+    char line[MAXLINE], maxline[MAXLINE];
+
+    max = 0;
+
+    while ((len = mgetline(line, MAXLINE, f)) > 0)
+    {
+        if (len > max)
+        {
+            max = len;
+            copy(maxline, line);
+        }
+    }
+    if (max > 0)
+        printf("%s", maxline);
+}
+
+int mgetline(char s[], int lim, FILE *f)
+{
+    int i, c;
+
+    for (i = 0; i < lim - 1 && (c = fgetc(f)) != EOF && c != '\n'; ++i)
+        s[i] = c;
+
+    if (c == '\n')
+    {
+        s[i] = c;
+        ++i;
+    }
+
+    s[i] = '\0';
+    return i;
 }
