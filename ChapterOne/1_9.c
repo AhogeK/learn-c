@@ -16,6 +16,8 @@ int mgetline(char s[], int lim, FILE *f);
 
 int ngetline(char line[], int lim, FILE *f);
 
+int removetrail(char rline[]);
+
 /* 打印最长的输入行 */
 void char_array(FILE *f)
 {
@@ -109,7 +111,7 @@ int ngetline(char line[], int lim, FILE *f)
 {
     int i, c;
 
-    for (i = 0; i < lim - 1 && ( c = getchar()) != EOF && c != '\n'; ++i)
+    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
         line[i] = c;
     if (c == '\n')
     {
@@ -117,5 +119,35 @@ int ngetline(char line[], int lim, FILE *f)
         ++i;
     }
     line[i] = '\0';
+    return i;
+}
+
+void exercise_1_18(FILE *f)
+{
+    int len;
+    char line[MAXLINE];
+
+    while ((len = mgetline(line, MAXLINE, f)) > 0)
+        if (removetrail(line) > 0)
+            printf("%s", line);
+}
+
+/* 用于删除空格与制表符 */
+int removetrail(char rline[])
+{
+    int i;
+
+    for (i = 0; rline[i] != '\n'; ++i);
+    --i; /* 除去最后的 \n */
+
+    for (i > 0; ((rline[i] == ' ') || (rline[i] == '\t')); --i); /* 除去空格及制表符号 */
+
+    if (i >= 0) /* 说明不是空行 */
+    {
+        ++i;
+        rline[i] = '\n';
+        ++i;
+        rline[i] = '\0';
+    }
     return i;
 }
