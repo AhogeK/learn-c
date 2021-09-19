@@ -4,14 +4,17 @@
 #include <stdio.h>
 
 #define MAXLINE 1000 /* 允许的输入行的最大长度 */
+#define LIMIT 80
 
 /* get_line函数：将一行读入s中并返回其长度 */
-int get_line(char line[], int maxline, FILE *f);
+int get_line(char s[], int lim, FILE *f);
 
 /* copy函数: 将from复制到to;这里假定to足够大 */
 void copy(char to[], char from[]);
 
 int mgetline(char s[], int lim, FILE *f);
+
+int ngetline(char line[], int lim, FILE *f);
 
 /* 打印最长的输入行 */
 void char_array(FILE *f)
@@ -23,7 +26,8 @@ void char_array(FILE *f)
 
     max = 0;
     while ((len = get_line(line, MAXLINE, f)) > 0)
-        if (len > max) {
+        if (len > max)
+        {
             max = len;
             copy(longest, line);
         }
@@ -41,7 +45,7 @@ int get_line(char s[], int lim, FILE *f)
         s[i] = c;
         ++i;
     }
-    s[i] =  '\0';
+    s[i] = '\0';
     return i;
 }
 
@@ -86,5 +90,32 @@ int mgetline(char s[], int lim, FILE *f)
     }
 
     s[i] = '\0';
+    return i;
+}
+
+void exercise_1_17(FILE *f)
+{
+    int len;
+    char line[MAXLINE];
+
+    while ((len = ngetline(line, MAXLINE, f)) > 0)
+    {
+        if (len > LIMIT)
+            printf("%s", line);
+    }
+}
+
+int ngetline(char line[], int lim, FILE *f)
+{
+    int i, c;
+
+    for (i = 0; i < lim - 1 && ( c = getchar()) != EOF && c != '\n'; ++i)
+        line[i] = c;
+    if (c == '\n')
+    {
+        line[i] = c;
+        ++i;
+    }
+    line[i] = '\0';
     return i;
 }

@@ -7,5 +7,6 @@
 
 void char_array(FILE *);
 void exercise_1_16(FILE *);
+void exercise_1_17(FILE *);
 
 #endif //LEARN_C_1_9_H
