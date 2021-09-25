@@ -7,4 +7,6 @@
 
 void external_variable_and_scope(FILE *);
 
+void exercise_1_20(FILE *);
+
 #endif //LEARN_C_1_10_H

@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 #define MAXLINE 1000    /* 允许的输入行的最大长度 */
+#define TABINC 4
 
 int max;                /* 到目前为止发现的最长行长度 */
 char line[MAXLINE];     /* 当前的输入行 */
@@ -57,4 +58,41 @@ void copy2()
     i =0;
     while ((longest[i] = line[i]) != '\0')
         ++i;
+}
+
+/**
+ * 编写程序 detab，将输入中的制表符替换成适当数目的空格,使空格充满到下一个制表符终止位的地方。
+ *
+ * @param f 文本文件
+ */
+void exercise_1_20(FILE *f)
+{
+    int nb, pos, c;
+    nb = 0;
+    pos = 1;
+
+    while ((c = fgetc(f)) != EOF)
+    {
+        if (c == '\t')
+        {
+            nb = TABINC;
+
+            while (nb > 0)
+            {
+                putchar('#');
+                ++pos;
+                --nb;
+            }
+        }
+        else if(c == '\n')
+        {
+            putchar(c);
+            pos = 1;
+        }
+        else
+        {
+            putchar(c);
+            ++pos;
+        }
+    }
 }
