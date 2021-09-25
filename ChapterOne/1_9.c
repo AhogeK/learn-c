@@ -18,6 +18,8 @@ int ngetline(char line[], int lim, FILE *f);
 
 int removetrail(char rline[]);
 
+void reverse(char rline[]);
+
 /* 打印最长的输入行 */
 void char_array(FILE *f)
 {
@@ -150,4 +152,39 @@ int removetrail(char rline[])
         rline[i] = '\0';
     }
     return i;
+}
+
+void exercise_1_19(FILE *f)
+{
+    int len;
+    char line[MAXLINE];
+
+    while ((len = mgetline(line, MAXLINE, f)) > 0)
+    {
+        reverse(line);
+        printf("%s", line);
+    }
+}
+
+void reverse(char rline[])
+{
+    int i, j;
+    char temp;
+
+    for (i = 0; rline[i] != '\0'; ++i)
+        ;
+
+    --i; /* 获取 rline 的长度 i */
+
+    if (rline[i] == '\n') --i; /* 去除换行符 */
+
+    j = 0;
+    while (j < i)
+    {
+        temp = rline[j];
+        rline[j] = rline[i];
+        rline[i] = temp;
+        --i;
+        ++j;
+    }
 }
