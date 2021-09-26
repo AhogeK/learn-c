@@ -163,3 +163,39 @@ void exercise_1_22(FILE *f) {
         printf("%s", line);
     }
 }
+
+/**
+ * 编写一个程序，删除C语言程序中所有的注释语句。(代码有问题)
+ *
+ * @param f
+ */
+void exercise_1_23(FILE *f) {
+    int in_comment, len;
+    int in_quote;
+    int t;
+
+    in_comment = in_quote = t = 0;
+    while ((len = get_line2(f)) > 0) {
+        t = 0;
+        while (t < len) {
+            if (line[t] == '"')
+                in_quote = 1;
+            if (!in_quote) {
+                if (line[t] == '/' && line[t + 1] == '*') {
+                    t = t + 2;
+                    in_comment = 1;
+                }
+                if (line[t] == '*' && line[t + 1] == '/') {
+                    t = t + 2;
+                    in_comment = 0;
+                }
+                if (in_comment == 1)
+                    t++;
+                else {
+                    printf("%c", line[t]);
+                    t++;
+                }
+            }
+        }
+    }
+}
