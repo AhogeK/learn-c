@@ -11,4 +11,6 @@ void exercise_1_20(FILE *);
 
 void exercise_1_21(FILE *);
 
+void exercise_1_22(FILE *);
+
 #endif //LEARN_C_1_10_H

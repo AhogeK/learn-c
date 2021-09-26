@@ -125,3 +125,41 @@ void exercise_1_21(FILE *f) {
         printf("%s", line);
     }
 }
+
+/**
+ * 编写一个程序，把较长的输入行"折"成短一些的两行或多行，折行位置在输入行的第n列之前的最后一个非空之后。
+ *
+ * @param f
+ */
+void exercise_1_22(FILE *f) {
+    int t, len;
+    int location, spaceholder;
+    const int FOLDLENGTH = 70; /* 每行最长长度，多出换行 */
+
+    while ((len = get_line2(f)) > 0) {
+        if (len < FOLDLENGTH) {
+
+        } else {
+            /*
+             * 如果该行超长，我们就循环替换离 FOLDLENGTH 最近的空格为换行符
+             */
+            t = 0;
+            location = 0;
+            spaceholder = 0;
+            while (t < len) {
+                if (line[t] == ' ' || line[t] == '\t')
+                    spaceholder = t;
+
+                if (location == FOLDLENGTH) {
+                    if (spaceholder != 0) {
+                        line[spaceholder] = '\n';
+                        location = 0;
+                    }
+                }
+                location++;
+                t++;
+            }
+        }
+        printf("%s", line);
+    }
+}
