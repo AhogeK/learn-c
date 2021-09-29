@@ -7,4 +7,6 @@
 
 void _2_1();
 
+void _2_2();
+
 #endif //LEARN_C_EXERCISE_2_H

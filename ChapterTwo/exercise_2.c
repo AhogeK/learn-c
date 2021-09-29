@@ -17,3 +17,18 @@ void _2_1() {
     printf("signed max char = %hhd\nunsigned max char = %hhu\nsigned max short = %hd\nunsigned max short = %hu\n"
            "signed max long = %ld\nunsigned max long = %lu", sc_max, uc_max, ss_max, us_max, sl_max, ul_max);
 }
+
+void _2_2() {
+    int lim = 10;
+    int c;
+    for (int i = 0; ; i++) {
+        if (i < lim - 1) {
+            if ((c = getchar()) != 'n') {
+                if (c != EOF) {
+                    // do something
+                }
+            }
+        }
+        break;
+    }
+}
