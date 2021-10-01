@@ -9,4 +9,6 @@ void _2_1();
 
 void _2_2();
 
+void _2_3();
+
 #endif //LEARN_C_EXERCISE_2_H
