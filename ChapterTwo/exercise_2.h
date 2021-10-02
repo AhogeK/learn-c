@@ -17,4 +17,6 @@ int _2_5(const char[], const char[]);
 
 unsigned _2_6(unsigned, int, int, unsigned);
 
+unsigned _2_7(unsigned, int, int);
+
 #endif //LEARN_C_EXERCISE_2_H

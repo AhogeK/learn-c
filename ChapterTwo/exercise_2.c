@@ -171,7 +171,16 @@ int _2_5(const char s1[], const char s2[]) {
     return pos;
 }
 
+/*
+ * 编写一个函数 setbits(x,p,n,y)，该函数返回对x执行下列操作后的结果值：将x中从第p位开始的n个（二进制）位设置为y中最右边n位的值，
+ * x的其余各位保持不变
+ **/
 unsigned _2_6(unsigned x, int p, int n, unsigned y) {
     /* 先把x需要改变的地方清0, 然后把y不需要改变的清0，两者求按位或既可替换需要替换的地方*/
     return (x & ((~0 << (p + 1)) | (~(~0 << (p + 1 - n))))) | ((y & ~(~0 << n)) << (p + 1 - n));
+}
+
+unsigned _2_7(unsigned x, int p, int n) {
+    /*准备需要取反的位数设为1其余为0的二进制值,再跟需要取反的x进行按位异或操作*/
+    return x ^ (~(~0U << n) << p);
 }
