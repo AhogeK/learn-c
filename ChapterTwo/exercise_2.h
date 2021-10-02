@@ -21,6 +21,8 @@ unsigned _2_7(unsigned, int, int);
 
 unsigned _2_8(unsigned, unsigned);
 
-int _2_9(unsigned x);
+int _2_9(unsigned);
+
+int _2_10(int);
 
 #endif //LEARN_C_EXERCISE_2_H

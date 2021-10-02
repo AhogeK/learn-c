@@ -70,7 +70,7 @@ long htoi(char hexstring[]) {
     /*
      * p指针为 hexstring指针指向下的元素，所以p指针转成的整数会大于等于hexstring指针转成的整数，其中p下标为0的指针与hexstring指针
      * 相同，说明数组的指针指向的是第一个元素的指针，且有序排列
-     **/
+     */
     while (p >= hexstring) {
         if ((dig = hchartoi(*p, pos)) < 0) {
             printf("Error\n");
@@ -124,7 +124,7 @@ void _2_3() {
          * test[thistest] - 一个需要转成 long int 的字符串指针
          * &endp - 用于指示 strtol 函数何时停止转换 (指针指向被转换的字符串)
          * 16 - 要被转换数字的基数
-         **/
+         */
         check = strtol(test[thistest], &endp, 16);
         if ((*endp != '\0' && result == -1) || result == check) {
             printf("Testing %s. Correct. %ld\n", test[thistest], result);
@@ -174,7 +174,7 @@ int _2_5(const char s1[], const char s2[]) {
 /*
  * 编写一个函数 setbits(x,p,n,y)，该函数返回对x执行下列操作后的结果值：将x中从第p位开始的n个（二进制）位设置为y中最右边n位的值，
  * x的其余各位保持不变
- **/
+ */
 unsigned _2_6(unsigned x, int p, int n, unsigned y) {
     /* 先把x需要改变的地方清0, 然后把y不需要改变的清0，两者求按位或既可替换需要替换的地方*/
     return (x & ((~0 << (p + 1)) | (~(~0 << (p + 1 - n))))) | ((y & ~(~0 << n)) << (p + 1 - n));
@@ -204,9 +204,14 @@ int _2_9(unsigned x) {
     /*
      * 只要不等于0就说明x中还包含1,计数b自增然后去掉一个1为0,只需要将x 按位与 (x - 1) 便能去除x中的一位1,因为当一个二进制减1时从右数
      * 最先出现的1必将被减去，位与运算时就算是借位过去的1还是会是0,只会保留还未被减去使用靠左的1
-     **/
+     */
     for (b = 0; x != 0; x &= (x - 1)) {
         b++;
     }
     return b;
+}
+
+int _2_10(int c) {
+    /* 因为 a < A 如果 A <= c <= Z 那么 c = c + a - A 即 c - A - a */
+    return c >= 'A' && c <= 'Z' ? c + 'a' - 'A' : c;
 }
