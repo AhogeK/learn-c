@@ -19,4 +19,6 @@ unsigned _2_6(unsigned, int, int, unsigned);
 
 unsigned _2_7(unsigned, int, int);
 
+unsigned _2_8(unsigned, unsigned);
+
 #endif //LEARN_C_EXERCISE_2_H
