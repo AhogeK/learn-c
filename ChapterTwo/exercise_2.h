@@ -13,4 +13,6 @@ void _2_3();
 
 void _2_4(char[], const char[]);
 
+int _2_5(const char[], const char[]);
+
 #endif //LEARN_C_EXERCISE_2_H

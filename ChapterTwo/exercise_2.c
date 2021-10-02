@@ -152,3 +152,21 @@ void _2_4(char s1[], const char s2[]) {
     }
     s1[j] = '\0';
 }
+
+int _2_5(const char s1[], const char s2[]) {
+    int i;
+    int j;
+    int pos;
+
+    pos = -1;
+
+    for (i = 0; pos == -1 && s1[i] != '\0'; i++) {
+        for (j = 0; pos == -1 && s2[j] != '\0'; j++) {
+            if (s2[j] == s1[i]) {
+                pos = i;
+            }
+        }
+    }
+
+    return pos;
+}
