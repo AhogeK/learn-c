@@ -170,3 +170,8 @@ int _2_5(const char s1[], const char s2[]) {
 
     return pos;
 }
+
+unsigned _2_6(unsigned x, int p, int n, unsigned y) {
+    /* 先把x需要改变的地方清0, 然后把y不需要改变的清0，两者求按位或既可替换需要替换的地方*/
+    return (x & ((~0 << (p + 1)) | (~(~0 << (p + 1 - n))))) | ((y & ~(~0 << n)) << (p + 1 - n));
+}
