@@ -1,9 +1,6 @@
-#include <stdio.h>
-#include "ChapterTwo/exercise_2.h"
+#include "ChapterThree/exercise_3_1.h"
 
 int main() {
-    _2_1();
-//    exercise_1_23(fopen("/home/ahogek/CLionProjects/learn-c/main.c","r"));
-//    exercise_1_22(fopen("/home/ahogek/Downloads/test.txt", "r"));
+    exercise_3_1();
     return 0;
 }
