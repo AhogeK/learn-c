@@ -16,4 +16,6 @@ int binsearch1(int, int[], int);
 
 int binsearch2(int, int[], int);
 
+void listen_3_4(FILE *f);
+
 #endif //LEARN_C_EXERCISE_3_1_H

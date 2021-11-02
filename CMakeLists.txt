@@ -12,5 +12,4 @@ file(GLOB SOURCES
         ChapterThree/*.c
         )
 
-
-add_executable(learn_c main.c ${SOURCES} ChapterThree/exercise_3_1.c)
+add_executable(learn_c main.c ${SOURCES})
