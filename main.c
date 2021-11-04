@@ -1,4 +1,4 @@
-#include "ChapterThree/exercise_3_1.h"
+#include "ChapterThree/chapter_three.h"
 
 int main() {
     listen_3_4(fopen("test", "r"));

@@ -2,8 +2,8 @@
 // Created by ahogek on 10/10/21.
 //
 
-#ifndef LEARN_C_EXERCISE_3_1_H
-#define LEARN_C_EXERCISE_3_1_H
+#ifndef LEARN_C_CHAPTER_THREE_H
+#define LEARN_C_CHAPTER_THREE_H
 
 #include <stdio.h>
 #include <time.h>
@@ -18,4 +18,10 @@ int binsearch2(int, int[], int);
 
 void listen_3_4(FILE *f);
 
-#endif //LEARN_C_EXERCISE_3_1_H
+void escape(char * s, char * t);
+
+void unescape(char * s, char * t);
+
+void exercise_3_2();
+
+#endif //LEARN_C_CHAPTER_THREE_H
