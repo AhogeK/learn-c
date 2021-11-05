@@ -34,4 +34,6 @@ void shellsort_test();
 
 void reverse_3_5(char s[]);
 
+void itoa_3_6(int n, char s[]);
+
 #endif //LEARN_C_CHAPTER_THREE_H

@@ -276,3 +276,18 @@ void reverse_3_5(char *s) {
         c = s[i], s[i] = s[j], s[j] = c;
     }
 }
+
+/* itoa函数: 将数字n转换为字符串并保存到s中 */
+void itoa_3_6(int n, char *s) {
+    int i, sign;
+    if ((sign = n) < 0) /* 记录符号 */
+        n = -n; /* 使n成为正数 */
+    i = 0;
+    do {
+        s[i++] = n % 10 + '0'; /* 取下一个数字 */
+    } while ((n /= 10) > 0); /* 删除该数字 */
+    if (sign < 0)
+        s[i++] = '-';
+    s[i] = '\0';
+    reverse_3_5(s);
+}
