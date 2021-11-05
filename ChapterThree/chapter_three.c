@@ -234,3 +234,45 @@ void exercise_3_2() {
     unescape(text1, text2);
     printf("Unescaped string:\n%s\n", text1);
 }
+
+/* atoi函数：将s转换为整型数 */
+int atoi_3_5(char *s) {
+    int i, n, sign;
+    // 跳过空白符
+    for (i = 0; isspace(s[i]); i++) ;
+    sign = (s[i] == '-') ? -1 : 1;
+    // 跳过符号
+    if (s[i] == '+' || s[i] == '-') i++;
+    for (n = 0; isdigit(s[i]); i++) n = 10 * n + (s[i] - '0');
+    return sign * n;
+}
+
+/* shellsort函数: 按递增顺序对v[0]...v[n-1]进行排序 */
+void shellsort(int *v, int n) {
+    int gap, i, j, temp;
+    for (gap = n / 2; gap > 0; gap /= 2)
+        for (i = gap; i < n; i++)
+            for (j = i - gap; j >= 0 && v[j] > v[j+gap]; j-= gap) {
+                temp = v[j];
+                v[j] = v[j + gap];
+                v[j + gap] = temp;
+            }
+}
+
+void shellsort_test() {
+    int v[] = {1, 10, 7, 8, 4, 3, 9, 2, 5, 6};
+    shellsort(v, 10);
+}
+
+/* reverse函数: 倒置字符串s中各个字符的位置 */
+void reverse_3_5(char *s) {
+    int c, i, j;
+    for (i = 0, j = strlen(s) - 1; i < j; i++, j--) {
+        /*
+        c = s[i];
+        s[i] = s[j];
+        s[j] = c;
+         */
+        c = s[i], s[i] = s[j], s[j] = c;
+    }
+}

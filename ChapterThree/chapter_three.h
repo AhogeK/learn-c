@@ -7,6 +7,8 @@
 
 #include <stdio.h>
 #include <time.h>
+#include <ctype.h>
+#include <string.h>
 
 #define MAX_ELEMENT 20000
 
@@ -23,5 +25,13 @@ void escape(char * s, char * t);
 void unescape(char * s, char * t);
 
 void exercise_3_2();
+
+int atoi_3_5(char s[]);
+
+void shellsort(int v[], int n);
+
+void shellsort_test();
+
+void reverse_3_5(char s[]);
 
 #endif //LEARN_C_CHAPTER_THREE_H
