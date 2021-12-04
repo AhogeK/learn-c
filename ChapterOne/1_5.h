@@ -5,12 +5,12 @@
 #ifndef LEARN_C_1_5_H
 #define LEARN_C_1_5_H
 
-void firstInputAndOutput(void);
-void fileCopy(void);
-void verifyGetchar(void);
+void firstInputAndOutput(FILE *);
+void fileCopy(FILE *);
+void verifyGetchar(FILE *);
 void printEOF(void);
-void charCount(void);
-void charCountV2(void);
+void charCount(FILE *);
+void charCountV2(FILE *);
 void rowCount(void);
 void statistic(void);
 void copyOutput(void);

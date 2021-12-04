@@ -8,32 +8,34 @@
 #define IN 1 /* 在单词内 */
 #define OUT 0 /* 在单词外 */
 
-void firstInputAndOutput()
+void firstInputAndOutput(FILE *pFile)
 {
-    char c = getchar();
-    putchar(c);
+//    char c = getchar();
+    putchar(fgetc(pFile));
+    printf("\n");
 }
 
 /**
  * 文件复制
  */
-void fileCopy()
+void fileCopy(FILE *pFile)
 {
     int c;
 
-    while ((c = getchar()) != EOF)
+    while ((c = fgetc(pFile)) != EOF)
     {
         putchar(c);
     }
+    printf("\n");
 }
 
 /**
  * 练习 1-6 验证表达式getchar()!=EOF的值是0还是1
  */
-void verifyGetchar()
+void verifyGetchar(FILE *pFile)
 {
-    char value;
-    value = (getchar() != EOF);
+    int value;
+    value = (fgetc(pFile) != EOF);
     printf("%d\n", value);
 }
 
@@ -42,17 +44,17 @@ void verifyGetchar()
  */
 void printEOF()
 {
-    printf("This is EOF: %d", EOF);
+    printf("This is EOF: %d\n", EOF);
 }
 
 /**
  * 统计输入的字符数：版本1
  */
-void charCount()
+void charCount(FILE *pFile)
 {
     long nc;
     nc = 0;
-    while (getchar() != EOF)
+    while (fgetc(pFile) != EOF)
         ++nc;
     printf("%ld\n", nc);
 }
@@ -60,11 +62,11 @@ void charCount()
 /**
  * 统计输入的字符数：版本2
  */
-void charCountV2()
+void charCountV2(FILE *pFile)
 {
-    double nc;
-    for (nc = 0; getchar() != EOF; ++nc);
-    printf("%.0f\n", nc);
+    int nc;
+    for (nc = 0; fgetc(pFile) != EOF; ++nc);
+    printf("%d\n", nc);
 }
 
 /**
