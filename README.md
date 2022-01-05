@@ -578,3 +578,218 @@ int powerv2(int base, int n)
     return p;
 }
 ```
+
+#### 1.9 打印最长的输入行
+
+```c
+#include <stdio.h>
+
+#define MAXLINE 1000 /* 允许的输入行的最大长度 */
+
+/* get_line函数：将一行读入s中并返回其长度 */
+int get_line(char s[], int lim, FILE *f);
+
+/* copy函数: 将from复制到to;这里假定to足够大 */
+void copy(char to[], char from[]);
+
+/* 打印最长的输入行 */
+void char_array(FILE *f)
+{
+    int len; /* 当前行长度 */
+    int max; /* 目前为止发现的最长行长度 */
+    char line[MAXLINE]; /* 当前的输入行 */
+    char longest[MAXLINE]; /* 用于保存最长的行 */
+
+    max = 0;
+    while ((len = get_line(line, MAXLINE, f)) > 0)
+        if (len > max)
+        {
+            max = len;
+            copy(longest, line);
+        }
+    if (max > 0) /* 存在这样的行 */
+        printf("%s", longest);
+}
+
+int get_line(char s[], int lim, FILE *f)
+{
+    int c, i;
+    for (i = 0; i < lim - 1 && (c = fgetc(f)) != EOF && c != '\n'; ++i)
+        s[i] = c;
+    if (c == '\n')
+    {
+        s[i] = c;
+        ++i;
+    }
+    s[i] = '\0';
+    return i;
+}
+
+void copy(char to[], char from[])
+{
+    int i;
+    i = 0;
+    while ((to[i] = from[i]) != '\0')
+        ++i;
+}
+```
+
+#### 练习 1-16
+
+> 修改打印最长文本行的程序的主程序main，使之可以打印任意长度的输入行的长度，并尽可能多地打印文本。
+
+```c
+#define MAXLINE 1000 /* 允许的输入行的最大长度 */
+
+int mgetline(char s[], int lim, FILE *f);
+
+void exercise_1_6(FILE *f)
+{
+    int len, max;
+    char line[MAXLINE], maxline[MAXLINE];
+
+    max = 0;
+
+    while ((len = mgetline(line, MAXLINE, f)) > 0)
+    {
+        if (len > max)
+        {
+            max = len;
+            copy(maxline, line);
+        }
+    }
+    if (max > 0)
+        printf("%s", maxline);
+}
+
+int mgetline(char s[], int lim, FILE *f)
+{
+    int i, c;
+
+    for (i = 0; i < lim - 1 && (c = fgetc(f)) != EOF && c != '\n'; ++i)
+        s[i] = c;
+
+    if (c == '\n')
+    {
+        s[i] = c;
+        ++i;
+    }
+
+    s[i] = '\0';
+    return i;
+}
+```
+
+#### 练习 1-17
+
+> 编写一个程序，打印长度大于80个字符的所有输入行。
+
+```c
+#define MAXLINE 1000 /* 允许的输入行的最大长度 */
+
+int ngetline(char line[], int lim, FILE *f)
+{
+    int i, c;
+
+    for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+        line[i] = c;
+    if (c == '\n')
+    {
+        line[i] = c;
+        ++i;
+    }
+    line[i] = '\0';
+    return i;
+}
+
+void exercise_1_17(FILE *f)
+{
+    int len;
+    char line[MAXLINE];
+
+    while ((len = ngetline(line, MAXLINE, f)) > 0)
+    {
+        if (len > LIMIT)
+            printf("%s", line);
+    }
+}
+```
+
+#### 练习 1-18
+
+> 编写一个程序，删除每个输入行末尾的空格及制表符，并删除完全是空格的行
+
+```c
+#define MAXLINE 1000 /* 允许的输入行的最大长度 */
+
+/* 用于删除空格与制表符 */
+int removetrail(char rline[])
+{
+    int i;
+
+    for (i = 0; rline[i] != '\n'; ++i);
+        --i; /* 除去最后的 \n */
+
+    for (i > 0; ((rline[i] == ' ') || (rline[i] == '\t')); --i); /* 除去空格及制表符号 */
+
+    if (i >= 0) /* 说明不是空行 */
+    {
+        ++i;
+        rline[i] = '\n';
+        ++i;
+        rline[i] = '\0';
+    }
+    return i;
+}
+
+void exercise_1_18(FILE *f)
+{
+    int len;
+    char line[MAXLINE];
+
+    while ((len = mgetline(line, MAXLINE, f)) > 0)
+        if (removetrail(line) > 0)
+            printf("%s", line);
+}
+```
+
+#### 练习 1-19
+
+> 编写函数 reverse(s)，将字符串s中的字符串顺序颠倒过来。使用该函数编写一个程序，每次颠倒一个输入行中的字符顺序
+
+```c
+void reverse(char rline[])
+{
+    int i, j;
+    char temp;
+
+    for (i = 0; rline[i] != '\0'; ++i)
+        ;
+
+    --i; /* 获取 rline 的长度 i */
+
+    if (rline[i] == '\n') --i; /* 去除换行符 */
+
+    j = 0;
+    while (j < i)
+    {
+        temp = rline[j];
+        rline[j] = rline[i];
+        rline[i] = temp;
+        --i;
+        ++j;
+    }
+}
+
+void exercise_1_19(FILE *f)
+{
+    int len;
+    char line[MAXLINE];
+
+    while ((len = mgetline(line, MAXLINE, f)) > 0)
+    {
+        reverse(line);
+        printf("%s", line);
+    }
+}
+```
