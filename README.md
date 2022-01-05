@@ -565,3 +565,16 @@ void fahrtocelsius()
         printf("%3.0f%6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32.0));
 }
 ```
+
+#### 1.8 power函数 版本2
+
+```c
+int powerv2(int base, int n)
+{
+    int p;
+
+    for (p = 1; n > 0; --n)
+        p = p * base;
+    return p;
+}
+```
