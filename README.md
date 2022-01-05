@@ -473,7 +473,7 @@ void exercise_1_13_2(FILE *f)
 }
 ```
 
-#### 练习-14
+#### 练习 1-14
 
 > 编写一个程序，打印输入中各个字符出现频读的直方图
 
@@ -500,5 +500,68 @@ void exercise_1_14(FILE *f)
 
         putchar('\n');
     }
+}
+```
+
+#### 1.7 测试power函数
+
+```c
+int power(int base, int n)
+{
+    int i, p;
+
+    p = 1;
+    for (i = 1; i <= n; ++i)
+        p = p * base;
+    return p;
+}
+
+main()
+{
+    int i;
+    
+    for (i = 0; i < 10; ++i)
+        printf("%d %d %d\n", i, power(2, i), power(-3, i));
+    return 0;
+}
+```
+
+#### 练习 1-15
+
+> 重新编写1.2节中的温度转换程序，使用函数实现温度转换计算。
+
+```c
+void exercise_1_15()
+{
+    int c;
+
+    printf("Temperature Conversion Table\n");
+    printf("1 - Fahrenheit to Celsius Conversion \n");
+    printf("2 - Celsius to Fahrenheit Conversion \n");
+    printf("- Enter your Choice\n");
+
+    c = getchar();
+
+    if (c == '1')
+        fahrtocelsius();
+    else if (c == '2')
+        celsiustofahr();
+    else
+        printf("Invalid Choice \n");
+}
+
+void celsiustofahr()
+{
+    float celsius;
+
+    for (celsius = LOWER; celsius <= UPPER; celsius = celsius + STEP)
+        printf("%3.0f%6.1f\n", celsius, (9.0 * celsius) / 5.0 + 32);
+}
+
+void fahrtocelsius()
+{
+    float fahr;
+    for (fahr = LOWER; fahr <= UPPER; fahr = fahr + STEP)
+        printf("%3.0f%6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32.0));
 }
 ```
