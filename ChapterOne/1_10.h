@@ -5,6 +5,8 @@
 #ifndef LEARN_C_1_10_H
 #define LEARN_C_1_10_H
 
+#include <bits/types/FILE.h>
+
 void external_variable_and_scope(FILE *);
 
 void exercise_1_20(FILE *);
