@@ -962,3 +962,24 @@ void exercise_1_22(FILE *f) {
     }
 }
 ```
+
+### 第二章
+
+#### 练习 2-1
+
+> 编写一个程序以确定分别由signed及unsigned限定的char, short, int 与 long类类型变量的取值范围。采用打印标准头文件中的相应值以及直接
+> 计算两种方式实现。后一种方法的实现困难一些，因为要确定各种浮点类型的取值范围。
+
+```c++
+void _2_1() {
+    signed char sc_max = SCHAR_MAX;
+    unsigned char uc_max = UCHAR_MAX;
+    signed short ss_max = SHRT_MAX;
+    unsigned short us_max = USHRT_MAX;
+    long sl_max = LONG_MAX;
+    unsigned long ul_max = ULONG_MAX;
+
+    printf("signed max char = %hhd\nunsigned max char = %hhu\nsigned max short = %hd\nunsigned max short = %hu\n"
+           "signed max long = %ld\nunsigned max long = %lu", sc_max, uc_max, ss_max, us_max, sl_max, ul_max);
+}
+```
