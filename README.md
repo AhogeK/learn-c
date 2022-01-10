@@ -1086,3 +1086,57 @@ int main() {
     printf("%d", rand());
 }
 ```
+
+#### 2.7 练习2-3
+
+> 编写函数htoi(s), 把由十六进制数字组成的字符串(包含可选的前缀0x或0X)转换为与之等价的整型值. 字符串中允许包含的数字包括: 0~9, a~f以及A~F.
+
+```c
+/* 将16进制的字符转换为十进制值 */
+long hchartoi(char hexdig, int pos) {
+    char hexdigits[] = "0123456789ABCDEF";
+    // 16进制下标下的字符
+    char *p = &hexdigits[0];
+    // 遍历的下标
+    long deci = 0;
+    int i;
+
+    while (*p != toupper(hexdig) && deci < 16) {
+        ++p;
+        ++deci;
+    }
+    // 如果字符就是传入的字符,求十进制值
+    if (*p == toupper(hexdig)) {
+        for (i = 0; i < pos; i++)
+            deci *= 16;
+        return deci;
+    }
+    return -1;
+}
+
+/* 将16进制数组成的字符串转换为整形值 */
+long htoi(char hexstring[]) {
+    /* 取最后一个字符 *p */
+    char *p = &hexstring[strlen(hexstring) - 1];
+    /* deci为最终值，dig为字符串元素字符转换后的十进制值 */
+    long deci = 0, dig;
+    /* 位数 */
+    int pos = 0;
+
+    /*
+     * p指针为 hexstring指针指向下的元素，所以p指针转成的整数会大于等于hexstring指针转成的整数，其中p下标为0的指针与hexstring指针
+     * 相同，说明数组的指针指向的是第一个元素的指针，且有序排列
+     */
+    while (p >= hexstring) {
+        if ((dig = hchartoi(*p, pos)) < 0) {
+            printf("Error\n");
+            return -1;
+        }
+        deci += dig;
+        /* 当下标为-1的数组指针必定小于hestring的指针，便会退出循环 */
+        --p;
+        ++pos;
+    }
+    return deci;
+}
+```
