@@ -1044,3 +1044,21 @@ int main() {
     printf("%d", atoi("15"));
 }
 ```
+
+#### 2.7 lower函数
+
+```c
+#include <stdio.h>
+
+/* lower函数：把字符c转换为小写形式;只对ASCII字符集有效 */
+int lower(int c) {
+    if (c >= 'A' && c <= 'Z')
+        return c + 'a' - 'A';
+    else
+        return c;
+}
+
+int main() {
+    printf("%c", lower('C'));
+}
+```
