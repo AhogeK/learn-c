@@ -6,10 +6,11 @@ set(CMAKE_C_STANDARD 99)
 file(GLOB SOURCES
         ChapterOne/*.h
         ChapterOne/*.c
-        ChapterTwo/*.h
-        ChapterTwo/*.c
+        ChapterTwo/exercise*.h
+        ChapterTwo/exercise*.c
         ChapterThree/*.h
         ChapterThree/*.c
         )
 
 add_executable(learn_c main.c ${SOURCES})
+add_executable(strlen_test ChapterTwo/strlen_test.c)
