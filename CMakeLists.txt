@@ -14,3 +14,4 @@ file(GLOB SOURCES
 
 add_executable(learn_c main.c ${SOURCES})
 add_executable(strlen_test ChapterTwo/strlen_test.c)
+add_executable(atoi_test ChapterTwo/atoi_test.c)
