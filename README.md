@@ -14,21 +14,21 @@
  */
 void fahrAndCelsius()
 {
-int fahr, celsius;
-int lower, upper, step;
-
-lower = 0;
-upper = 300;
-step = 20;
-
-fahr = lower;
-printf("%s\n", "不带浮点数的表");
-while (fahr <= upper)
-{
-celsius = 5 * (fahr - 32) / 9;
-printf("%d\t%d\n", fahr, celsius);
-fahr = fahr + step;
-}
+    int fahr, celsius;
+    int lower, upper, step;
+    
+    lower = 0;
+    upper = 300;
+    step = 20;
+    
+    fahr = lower;
+    printf("%s\n", "不带浮点数的表");
+    while (fahr <= upper)
+    {
+        celsius = 5 * (fahr - 32) / 9;
+        printf("%d\t%d\n", fahr, celsius);
+        fahr = fahr + step;
+    }
 }
 ```
 
@@ -38,21 +38,21 @@ fahr = fahr + step;
  */
 void floatFahrAndCelsius()
 {
-float fahrenheit, celsius;
-int lower, upper, step;
-
-lower = 0;
-upper = 300;
-step = 20;
-
-fahrenheit = lower;
-printf("%s\n", "带浮点数的表");
-while (fahrenheit <= upper)
-{
-celsius = (5.0 / 9.0) * (fahrenheit - 32.0);
-printf("%3.0f %6.1f\n", fahrenheit, celsius);
-fahrenheit = fahrenheit + step;
-}
+    float fahrenheit, celsius;
+    int lower, upper, step;
+    
+    lower = 0;
+    upper = 300;
+    step = 20;
+    
+    fahrenheit = lower;
+    printf("%s\n", "带浮点数的表");
+    while (fahrenheit <= upper)
+    {
+        celsius = (5.0 / 9.0) * (fahrenheit - 32.0);
+        printf("%3.0f %6.1f\n", fahrenheit, celsius);
+        fahrenheit = fahrenheit + step;
+    }
 }
 ```
 
@@ -66,21 +66,21 @@ fahrenheit = fahrenheit + step;
  */
 void celsiusToFahrenheit()
 {
-float fahrenheit, celsius;
-int lower, upper, step;
-
-lower = -20;
-upper = 40;
-step = 5;
-
-celsius = lower;
-printf("%s\n", "打印摄氏度转华氏表");
-while (celsius <= upper)
-{
-fahrenheit = celsius * 9 / 5 + 32;
-printf("%3.0f %3.1f\n", celsius, fahrenheit);
-celsius += step;
-}
+    float fahrenheit, celsius;
+    int lower, upper, step;
+    
+    lower = -20;
+    upper = 40;
+    step = 5;
+    
+    celsius = lower;
+    printf("%s\n", "打印摄氏度转华氏表");
+    while (celsius <= upper)
+    {
+        fahrenheit = celsius * 9 / 5 + 32;
+        printf("%3.0f %3.1f\n", celsius, fahrenheit);
+        celsius += step;
+    }
 }
 ```
 
@@ -103,7 +103,7 @@ void forLoopPrint()
 void forLoopCelsiusToFahrenheit()
 {
 for (int celsius = -20; celsius <= 40; celsius += 5)
-printf("%3d %6.1f\n", celsius, celsius * (9.0 / 5.0) + 32);
+    printf("%3d %6.1f\n", celsius, celsius * (9.0 / 5.0) + 32);
 }
 ```
 
@@ -143,13 +143,13 @@ void firstInputAndOutput(FILE *pFile)
 ```c
 void fileCopy(FILE *pFile)
 {
-int c;
-
-while ((c = fgetc(pFile)) != EOF)
-{
-putchar(c);
-}
-printf("\n");
+    int c;
+    
+    while ((c = fgetc(pFile)) != EOF)
+    {
+        putchar(c);
+    }
+    printf("\n");
 }
 ```
 
@@ -1100,7 +1100,7 @@ long hchartoi(char hexdig, int pos) {
     // 遍历的下标
     long deci = 0;
     int i;
-
+    
     while (*p != toupper(hexdig) && deci < 16) {
         ++p;
         ++deci;
@@ -1122,7 +1122,7 @@ long htoi(char hexstring[]) {
     long deci = 0, dig;
     /* 位数 */
     int pos = 0;
-
+    
     /*
      * p指针为 hexstring指针指向下的元素，所以p指针转成的整数会大于等于hexstring指针转成的整数，其中p下标为0的指针与hexstring指针
      * 相同，说明数组的指针指向的是第一个元素的指针，且有序排列
