@@ -5,7 +5,7 @@
 #ifndef LEARN_C_1_9_H
 #define LEARN_C_1_9_H
 
-#include <bits/types/FILE.h>
+#include <stdio.h>
 
 void char_array(FILE *);
 

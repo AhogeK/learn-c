@@ -5,7 +5,7 @@
 #ifndef LEARN_C_1_5_H
 #define LEARN_C_1_5_H
 
-#include <bits/types/FILE.h>
+#include <stdio.h>
 
 void firstInputAndOutput(FILE *);
 

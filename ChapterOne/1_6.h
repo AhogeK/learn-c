@@ -5,7 +5,7 @@
 #ifndef LEARN_C_1_6_H
 #define LEARN_C_1_6_H
 
-#include <bits/types/FILE.h>
+#include <stdio.h>
 
 /**
  * 统计各个数字、空白符及其它字符出现的次数
