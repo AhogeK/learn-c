@@ -371,13 +371,12 @@ void exercise_1_12()
 ```c
 void array_1_6(FILE *f)
 {
-int c, i, nwhite, nother;
-int ndigit[10];
+    int c, i, nwhite, nother;
+    int ndigit[10];
 
     nwhite = nother = 0;
     for (i = 0; i < 10; ++i)
         ndigit[i] = 0;
-
 
     while ((c = getc(f)) != EOF)
         if (c >= '0' && c <= '9')
