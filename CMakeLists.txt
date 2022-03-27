@@ -3,14 +3,8 @@ project(learn_c C)
 
 set(CMAKE_C_STANDARD 99)
 
-file(GLOB SOURCES
-        ChapterOne/*.h
-        ChapterTwo/exercise*.h
-        ChapterThree/*.h
-        )
-
-add_executable(learn_c empty.c ${SOURCES})
-add_executable(symbol_constants ChapterOne/1_4.c)
+add_executable(symbol_constants ChapterOne/1_4.c ChapterOne/1_4.h)
+add_executable(1_5 ChapterOne/1_5.c ChapterOne/1_5.c ChapterOne/1_5.h)
 add_executable(strlen_test ChapterTwo/strlen_test.c)
 add_executable(atoi_test ChapterTwo/atoi_test.c)
 add_executable(lower_test ChapterTwo/lower_test.c)

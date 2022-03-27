@@ -8,8 +8,7 @@
 #define IN 1 /* 在单词内 */
 #define OUT 0 /* 在单词外 */
 
-void firstInputAndOutput(FILE *pFile)
-{
+void firstInputAndOutput(FILE *pFile) {
 //    char c = getchar();
     putchar(fgetc(pFile));
     printf("\n");
@@ -18,12 +17,10 @@ void firstInputAndOutput(FILE *pFile)
 /**
  * 文件复制
  */
-void fileCopy(FILE *pFile)
-{
+void fileCopy(FILE *pFile) {
     int c;
 
-    while ((c = fgetc(pFile)) != EOF)
-    {
+    while ((c = fgetc(pFile)) != EOF) {
         putchar(c);
     }
     printf("\n");
@@ -32,8 +29,7 @@ void fileCopy(FILE *pFile)
 /**
  * 练习 1-6 验证表达式getchar()!=EOF的值是0还是1
  */
-void verifyGetchar(FILE *pFile)
-{
+void verifyGetchar(FILE *pFile) {
     int value;
     value = (fgetc(pFile) != EOF);
     printf("%d\n", value);
@@ -42,16 +38,14 @@ void verifyGetchar(FILE *pFile)
 /**
  * 练习1-7 编写一个打印EOF值的程序
  */
-void printEOF()
-{
+void printEOF() {
     printf("This is EOF: %d\n", EOF);
 }
 
 /**
  * 统计输入的字符数：版本1
  */
-void charCount(FILE *pFile)
-{
+void charCount(FILE *pFile) {
     long nc;
     nc = 0;
     while (fgetc(pFile) != EOF)
@@ -62,8 +56,7 @@ void charCount(FILE *pFile)
 /**
  * 统计输入的字符数：版本2
  */
-void charCountV2(FILE *pFile)
-{
+void charCountV2(FILE *pFile) {
     int nc;
     for (nc = 0; fgetc(pFile) != EOF; ++nc);
     printf("%d\n", nc);
@@ -72,11 +65,10 @@ void charCountV2(FILE *pFile)
 /**
  * 统计输入的行数
  */
-void rowCount()
-{
+void rowCount(FILE *pFile) {
     int c, nl;
     nl = 0;
-    while ((c = getchar()) != EOF)
+    while ((c = fgetc(pFile)) != EOF)
         if (c == '\n')
             ++nl;
     printf("%d\n", nl);
@@ -85,12 +77,10 @@ void rowCount()
 /**
  * 统计空格，制表符，换行符
  */
-void statistic()
-{
+void statistic(FILE *pFile) {
     long c, sn, bn, nn;
-    sn, bn, nn = 0;
-    while ((c = getchar()) != EOF)
-    {
+    sn = 0, bn = 0, nn = 0;
+    while ((c = fgetc(pFile)) != EOF) {
         if (c == ' ')
             ++sn;
         if (c == '\b')
@@ -104,32 +94,27 @@ void statistic()
 /**
  * 输入复制到输出
  */
-void copyOutput()
-{
+void copyOutput(FILE *pFile) {
     int c;
-    while ((c = getchar()) != EOF)
-    {
-        if (c == ' ')
-        {
+    while ((c = fgetc(pFile)) != EOF) {
+        if (c == ' ') {
             putchar(c);
-            while ((c = getchar()) == ' ');
+            while ((c = fgetc(pFile)) == ' ');
         }
         if (c == EOF)
             break;
         putchar(c);
     }
+    putchar('\n');
 }
 
 /**
  * 转译符号转转译字符串
  */
-void toEscString()
-{
+void toEscString(FILE *pFile) {
     int c;
-    while ((c = getchar()) != EOF)
-    {
-        switch (c)
-        {
+    while ((c = fgetc(pFile)) != EOF) {
+        switch (c) {
             case '\t':
                 putchar(ESC_CHAR);
                 putchar('t');
@@ -146,25 +131,23 @@ void toEscString()
                 break;
         }
     }
+    putchar('\n');
 }
 
 /**
  * 单词计数
  */
-void wordCount()
-{
+void wordCount(FILE *pFile) {
     int c, nl, nw, nc, state;
     state = OUT;
     nl = nw = nc = 0;
-    while ((c = getchar()) != EOF)
-    {
+    while ((c = fgetc(pFile)) != EOF) {
         ++nc;
         if (c == '\n')
             ++nl;
         if (c == ' ' || c == '\n' || c == '\t')
             state = OUT;
-        else if (state == OUT)
-        {
+        else if (state == OUT) {
             state = IN;
             ++nw;
         }
@@ -175,8 +158,7 @@ void wordCount()
 /**
  * 1.5.4 练习 1-11 单元测试
  */
-void unitTest(void)
-{
+void unitTest(void) {
     FILE *f;
     unsigned long i;
     static char *al = "abcdefghijklmnopqrstuvwxyz";
@@ -203,22 +185,50 @@ void unitTest(void)
 
 /**
  * 练习 1-12
+ * 编写一个程序，以每行一个单词的形式打印其输出
  */
-void exercise_1_12()
-{
+void exercise_1_12(FILE *pFile) {
     int c, state;
     state = IN;
-    while ((c = getchar()) != EOF)
-    {
+    while ((c = fgetc(pFile)) != EOF) {
         if (c == ' ' || c == '\t')
             state = OUT;
-        else if (state == OUT)
-        {
+        else if (state == OUT) {
             state = IN;
             putchar('\n');
             putchar(c);
-        }
-        else
+        } else
             putchar(c);
+    }
+}
+
+int main() {
+    FILE *fptr;
+    fptr = (fopen("../test.txt", "r"));
+    if (fptr) {
+        firstInputAndOutput(fptr);
+        rewind(fptr);
+        fileCopy(fptr);
+        rewind(fptr);
+        verifyGetchar(fptr);
+        printEOF();
+        rewind(fptr);
+        charCount(fptr);
+        rewind(fptr);
+        charCountV2(fptr);
+        rewind(fptr);
+        rowCount(fptr);
+        rewind(fptr);
+        statistic(fptr);
+        rewind(fptr);
+        copyOutput(fptr);
+        rewind(fptr);
+        toEscString(fptr);
+        rewind(fptr);
+        wordCount(fptr);
+        unitTest();
+        rewind(fptr);
+        exercise_1_12(fptr);
+        fclose(fptr);
     }
 }

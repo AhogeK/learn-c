@@ -19,14 +19,18 @@ void charCount(FILE *);
 
 void charCountV2(FILE *);
 
-void rowCount(void);
+void rowCount(FILE *);
 
-void statistic(void);
+void statistic(FILE *);
 
-void copyOutput(void);
-void toEscString(void);
+void copyOutput(FILE *);
+
+void toEscString(FILE *);
+
 void wordCount(void);
+
 void unitTest(void);
+
 void exercise_1_12(void);
 
 #endif //LEARN_C_1_5_H
