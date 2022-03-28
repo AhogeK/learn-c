@@ -29,7 +29,6 @@ void array_1_6(FILE *f)
     for (i = 0; i < 10; ++i)
         printf(" %d", ndigit[i]);
     printf(", white space = %d, other = %d\n", nwhite, nother);
-    fclose(f);
 }
 
 void exercise_1_13(FILE *f)
@@ -118,5 +117,7 @@ int main() {
     FILE *fptr;
     fptr = (fopen("../test.txt", "r"));
     array_1_6(fptr);
+    rewind(fptr);
+    exercise_1_13(fptr);
     fclose(fptr);
 }
