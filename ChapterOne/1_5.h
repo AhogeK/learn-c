@@ -27,10 +27,10 @@ void copyOutput(FILE *);
 
 void toEscString(FILE *);
 
-void wordCount(void);
+void wordCount(FILE *);
 
 void unitTest(void);
 
-void exercise_1_12(void);
+void exercise_1_12(FILE *);
 
 #endif //LEARN_C_1_5_H

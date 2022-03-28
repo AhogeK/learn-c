@@ -104,13 +104,19 @@ void exercise_1_14(FILE *f)
     while ((c = fgetc(f)) != EOF)
         _char[c] = _char[c] + 1;
 
-    for (i = 0; i < TOTAL_CHARS; ++i)
-    {
+    for (i = 0; i < TOTAL_CHARS; ++i) {
         putchar(i);
 
-        for(j = 0; j < _char[i]; ++j)
+        for (j = 0; j < _char[i]; ++j)
             putchar('*');
 
         putchar('\n');
     }
+}
+
+int main() {
+    FILE *fptr;
+    fptr = (fopen("../test.txt", "r"));
+    array_1_6(fptr);
+    fclose(fptr);
 }
