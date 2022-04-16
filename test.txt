@@ -1,4 +1,4 @@
-'这是一个用来测试读取的文件'
-    这里是第2行
-Hello World
+This is a file used to test reads.
+    Here is the second line.
+Hello World!
 0 99 888 777 6666 55555 444444 3333333 2 1
