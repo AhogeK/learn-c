@@ -154,3 +154,32 @@ int main() {
         printf("%3d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
 }
 ```
+
+## 符号常量
+
+在程序代码中经常使用类似 300 20 等这样类似的"幻数"并不是一个好习惯，处理这种幻数的一种方法是赋予他们有意义的名字。
+``#define`` 指令就是一种方式
+
+```c
+#define 名字 替换文本
+```
+
+例如如下代码案例：
+
+```c
+#include <stdio.h>
+
+#define LOWER 0     /* 温度表的下限 */
+#define UPPER 300   /* 温度表的上限 */
+#define STEP  20     /* 步长 */
+
+/*
+ * 打印华氏温度-摄氏温度对照表
+ */
+int main() {
+    for (int fahr = LOWER; fahr <= UPPER; fahr = fahr + STEP)
+        printf("%3d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
+}
+```
+
+符号常量通常用大写字母拼写，注意 ``#define`` 指令行的末尾没有分号
