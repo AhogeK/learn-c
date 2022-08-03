@@ -12,6 +12,6 @@
  * 打印华氏温度-摄氏温度对照表
  */
 int main() {
-    for (int fahr = LOWER; fahr <= UPPER; fahr = fahr + STEP)
-        printf("%3d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
+    for (int fahrenheit = LOWER; fahrenheit <= UPPER; fahrenheit = fahrenheit + STEP)
+        printf("%3d %6.1f\n", fahrenheit, (5.0 / 9.0) * (fahrenheit - 32));
 }
