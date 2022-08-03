@@ -5,13 +5,13 @@
 #include <stdio.h>
 
 /*
- * 当 fahr = 0, 20, ..., 300时, 分别
+ * 当 fahrenheit = 0, 20, ..., 300时, 分别
  * 打印华氏温度与摄氏温度对照表
  * 浮点数版本
  */
 int main() {
 
-    float fahr;
+    float fahrenheit;
     float celsius;
     float lower;
     float upper;
@@ -21,10 +21,10 @@ int main() {
     upper = 300; /* 温度表的上限 */
     step = 20;   /* 步长 */
 
-    fahr = lower;
-    while (fahr <= upper) {
-        celsius = (5.0f / 9.0f) * (fahr - 32.0f);
-        printf("%3.0f %6.1f\n", fahr, celsius);
-        fahr = fahr + step;
+    fahrenheit = lower;
+    while (fahrenheit <= upper) {
+        celsius = (5.0f / 9.0f) * (fahrenheit - 32.0f);
+        printf("%3.0f %6.1f\n", fahrenheit, celsius);
+        fahrenheit = fahrenheit + step;
     }
 }
