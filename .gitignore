@@ -151,6 +151,10 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
+### Ninja template
+.ninja_deps
+.ninja_log
+
 ### Example user template template
 ### Example user template
 
@@ -180,3 +184,5 @@ tags
 # Persistent undo
 [._]*.un~
 
+# Personal build forder
+build

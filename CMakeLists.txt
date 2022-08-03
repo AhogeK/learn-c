@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
 project(learn_c C)
 
-set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 17)
 
 add_executable(1_2_1 ChapterOne/1_2_1.c)
 add_executable(1_2_2 chapterOne/1_2_2.c)
