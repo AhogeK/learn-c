@@ -17,6 +17,7 @@ add_executable(1_5_5 chapterOne/1_5_5.c)
 add_executable(1_5_6 chapterOne/1_5_6.c)
 
 add_executable(2_3 chapterTwo/2_3.c)
-add_executable(2_7 chapterTwo/2_7.c)
 add_executable(strlen_test chapterTwo/strlen_test.c)
+add_executable(atoi_test ChapterTwo/atoi_test.c)
+add_executable(lower_test ChapterTwo/lower_test.c)
 add_executable(exercise_2_1 chapterTwo/exercise_2_1.c)
