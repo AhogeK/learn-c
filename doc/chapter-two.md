@@ -285,50 +285,50 @@ int main() {
 ```c
 /* 将16进制的字符转换为十进制值 */
 long hchartoi(char hexdig, int pos) {
-char hexdigits[] = "0123456789ABCDEF";
-// 16进制下标下的字符
-char *p = &hexdigits[0];
-// 遍历的下标
-long deci = 0;
-int i;
+    char hexdigits[] = "0123456789ABCDEF";
+    // 16进制下标下的字符
+    char *p = &hexdigits[0];
+    // 遍历的下标
+    long deci = 0;
+    int i;
 
-while (*p != toupper(hexdig) && deci < 16) {
-++p;
-++deci;
-}
-// 如果字符就是传入的字符,求十进制值
-if (*p == toupper(hexdig)) {
-for (i = 0; i < pos; i++)
-deci *= 16;
-return deci;
-}
-return -1;
+    while (*p != toupper(hexdig) && deci < 16) {
+        ++p;
+        ++deci;
+    }
+    // 如果字符就是传入的字符,求十进制值
+    if (*p == toupper(hexdig)) {
+        for (i = 0; i < pos; i++)
+        deci *= 16;
+        return deci;
+    }
+    return -1;
 }
 
 /* 将16进制数组成的字符串转换为整形值 */
 long htoi(char hexstring[]) {
-/* 取最后一个字符 *p */
-char *p = &hexstring[strlen(hexstring) - 1];
-/* deci为最终值，dig为字符串元素字符转换后的十进制值 */
-long deci = 0, dig;
-/* 位数 */
-int pos = 0;
+    /* 取最后一个字符 *p */
+    char *p = &hexstring[strlen(hexstring) - 1];
+    /* deci为最终值，dig为字符串元素字符转换后的十进制值 */
+    long deci = 0, dig;
+    /* 位数 */
+    int pos = 0;
 
-/*
- * p指针为 hexstring指针指向下的元素，所以p指针转成的整数会大于等于hexstring指针转成的整数，其中p下标为0的指针与hexstring指针
- * 相同，说明数组的指针指向的是第一个元素的指针，且有序排列
- */
-while (p >= hexstring) {
-if ((dig = hchartoi(*p, pos)) < 0) {
-printf("Error\n");
-return -1;
-}
-deci += dig;
-/* 当下标为-1的数组指针必定小于hestring的指针，便会退出循环 */
---p;
-++pos;
-}
-return deci;
+    /*
+     * p指针为 hexstring指针指向下的元素，所以p指针转成的整数会大于等于hexstring指针转成的整数，其中p下标为0的指针与hexstring指针
+     * 相同，说明数组的指针指向的是第一个元素的指针，且有序排列
+     */
+    while (p >= hexstring) {
+        if ((dig = hchartoi(*p, pos)) < 0) {
+            printf("Error\n");
+            return -1;
+        }
+        deci += dig;
+        /* 当下标为-1的数组指针必定小于hestring的指针，便会退出循环 */
+        --p;
+        ++pos;
+    }
+    return deci;
 }
 ```
 
@@ -431,17 +431,17 @@ int _2_5(const char s1[], const char s2[]) {
 
 /* getbits函数: 返回x中从第p位开始的n位 */
 unsigned getbits(unsigned x, int p, int n) {
-return (x >> (p + 1 - n)) & ~(~0 << n);
+    return (x >> (p + 1 - n)) & ~(~0 << n);
 }
 
 void printBinary(unsigned n, int len) {
-for (int i = len - 1; i != -1; i--)
-printf("%d", (n & (1 << i)) >> i );
-putc('\n', stdout);
+    for (int i = len - 1; i != -1; i--)
+        printf("%d", (n & (1 << i)) >> i );
+    putc('\n', stdout);
 }
 
 int main() {
-printBinary(getbits(40, 4, 3), 3);
-return 0;
+    printBinary(getbits(40, 4, 3), 3);
+    return 0;
 }
 ```
