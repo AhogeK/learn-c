@@ -3,9 +3,10 @@
 //
 
 #include <string.h>
-#include <printf.h>
 #include <math.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 int htoi(const char s[]) {
     unsigned long size = strlen(s);
