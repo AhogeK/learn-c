@@ -233,6 +233,21 @@ const double e = 2.71828182845905;
 const char msg[] = "warning:  ";
 ```
 
+### 2.5 算数运算符
+
+二元算数运算符包括: ``+ - * / %(取模运算符)``。整数除法会截去小数部分。
+
+判断闰年:
+
+```c
+if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+    printf("%d is a leap year\n", year);
+else
+    printf("%d is not a leap year\n", year);
+```
+
+取模运算符不能应用于 float 或 double 类型
+
 #### 2.6 练习 2-2
 
 > 在不使用运算符&&或||的条件下编写一个与上面的for循环语句等价的循环语句
