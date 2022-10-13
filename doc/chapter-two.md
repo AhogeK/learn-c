@@ -384,6 +384,8 @@ int main() {
 > 编写函数htoi(s), 把由十六进制数字组成的字符串(包含可选的前缀0x或0X)转换为与之等价的整型值。
 > 字符串中允许包含的数字包括: 0 ~ 9, a ~ f 以及 A ~ F。
 
+[exercise_2_3.c](../ChapterTwo/exercise_2_3.c)
+
 ```c
 #include <string.h>
 #include <math.h>
