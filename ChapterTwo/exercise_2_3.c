@@ -31,29 +31,7 @@ int htoi(const char s[]) {
                 dec = s[i] - '0';
             } else {
                 char c = (char) toupper(s[i]);
-                switch (c) {
-                    case 'A':
-                        dec = 10;
-                        break;
-                    case 'B':
-                        dec = 11;
-                        break;
-                    case 'C':
-                        dec = 12;
-                        break;
-                    case 'D':
-                        dec = 13;
-                        break;
-                    case 'E':
-                        dec = 14;
-                        break;
-                    case 'F':
-                        dec = 15;
-                        break;
-                    default:
-                        // do nothing
-                        break;
-                }
+                dec = c - 'A' + 10;
             }
             sum += dec * (int) pow(16, index);
             index++;
@@ -63,6 +41,6 @@ int htoi(const char s[]) {
 }
 
 int main() {
-    char s[] = "0xFFFF";
+    char s[] = "0x3FAE";
     printf("%s转换为十进制为：%d", s, htoi(s));
 }
