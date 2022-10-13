@@ -15,7 +15,8 @@ int htoi(const char s[]) {
         exit(0);
     }
     int sum = 0;
-    for (int i = 0; i < size; i++) {
+    int index = 0;
+    for (int i = (int) size - 1; i >= 0; i--) {
         int dec = 0;
         if ((i == 0 && s[i] !='0') || (i == 1 && s[i] != 'x' && s[i] != 'X')) {
             printf("%s 不是十六进制字符串", s);
@@ -54,7 +55,8 @@ int htoi(const char s[]) {
                         break;
                 }
             }
-            sum += dec * (int) pow(16, i - 2);
+            sum += dec * (int) pow(16, index);
+            index++;
         }
     }
     return sum;
