@@ -393,7 +393,7 @@ int main() {
 
 int htoi(const char s[]) {
     unsigned long size = strlen(s);
-    if (size == 2) {
+    if (size <= 2) {
         printf("%s 不是十六进制字符串", s);
         exit(0);
     }
