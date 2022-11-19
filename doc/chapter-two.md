@@ -431,26 +431,37 @@ int main() {
 }
 ```
 
+### 自增运算符与自减运算符
+
+```c
+if (c == '\n')
+    nl++;
+```
+
+* ++n先将n的值递增1
+* n++则先使用变脸n的值后再将你递增1
+
+**自增与自减运算符只能作用于变量**
+
 #### 2.8 squeeze函数
 
 ```c
 #include <stdio.h>
 
 /* squeeze函数: 从字符串s中删除字符c */
-void squeeze(char s[], int c) {
-    int i, j;
-
-    for (i = j = 0; s[i] != '\0'; i++)
+void squeeze(char s[], char c) {
+    int i = 0;
+    int j = 0;
+    for (; s[i] != '\0'; i++)
         if (s[i] != c)
             s[j++] = s[i];
     s[j] = '\0';
 }
 
 int main() {
-    char s[] = "squeeze";
-    squeeze(s, 'q');
-    printf("via squeeze: %s\n", s);
-    return 0;
+    char testStr[] = "hello world";
+    squeeze(testStr, 'l');
+    printf("%s", testStr);
 }
 ```
 
@@ -459,67 +470,87 @@ int main() {
 ```c
 #include <stdio.h>
 
-/* strcat函数: 将字符串t连接到字符串s的尾部; s必须有足够大的空间 */
-void custom_strcat(char s[], char t[]) {
-    int i, j;
+/* strcat 函数: 将字符串 t 连接到字符串 s 的尾部; s 必须有足够大的空间 */
+void strcat_test(char s[], const char t[]) {
+    int i;
+    int j;
 
-    i = j = 0;
-    while (s[i] != '\0') /* 判断是否为字符串 s 的尾部 */
+    i = 0;
+    j = 0;
+
+    while (s[i] != '\0') /* 判断是否为字符串的尾部 */
         i++;
-    while ((s[i++] = t[j++]) != '\0') /* 拷贝 t */
+    while ((s[i++] = t[j++]) != '\0') /* 拷贝t */
         ;
 }
 
 int main() {
-    char s[100];
-    char t[] = "custom_strcat";
-    custom_strcat(s, t);
-    printf("%s", s);
+    char testStr[1000] = "Hello World!";
+    char testStr2[] = "林滋剑";
+    strcat_test(testStr, testStr2);
+    printf("%s", testStr);
 }
 ```
 
 #### 2.8 练习 2-4
 
 ```c
-void _2_4(char s1[], const char s2[]) {
-    int i, j, k;
-    int instr;
+#include <stdio.h>
 
-    for (i = j = 0; s1[i] != '\0'; i++) {
-        instr = 0;
-        for (k = 0; s2[k] != '\0' && !instr; k++) {
-            if (s2[k] == s1[i]) {
-                instr = 1;
+/* 练习2-4 重新编写函数 squeeze(s1, s2) 将字符串 s1 中任何与 s2 中的字符匹配的字符都删除 */
+void squeeze_exercise_2_4(char s1[], const char s2[]) {
+    // 初始化
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    int instr2;
+
+    // 遍历字符串 s1
+    while (s1[i] != '\0') {
+        // 默认该字符不在 s2 中
+        instr2 = 0;
+        // 遍历 s2, 当只有不是包含字符时，j 才赋值下标 i 的字符
+        while (s2[k] != '\0' && !instr2)
+            if (s2[k++] == s1[i]) {
+                instr2 = 1;
+                k = 0;
             }
-        }
-
-        if (!instr) {
+        if (!instr2)
             s1[j++] = s1[i];
-        }
+        k = 0;
+        i++;
     }
     s1[j] = '\0';
+}
+
+int main() {
+    char s1[] = "Hello World";
+    char s2[] = " ";
+    squeeze_exercise_2_4(s1, s2);
+    printf("%s", s1);
 }
 ```
 
 #### 2.8 练习2-5
 
 ```c
-int _2_5(const char s1[], const char s2[]) {
-    int i;
-    int j;
-    int pos;
+#include <stdio.h>
 
-    pos = -1;
-
-    for (i = 0; pos == -1 && s1[i] != '\0'; i++) {
-        for (j = 0; pos == -1 && s2[j] != '\0'; j++) {
-            if (s2[j] == s1[i]) {
-                pos = i;
+int any(const char s1[], const char s2[]) {
+    for (int i = 0; s1[i] != '\0'; i++) {
+        for (int j = 0; s2[j] != '\0'; j++) {
+            if (s1[i] == s2[j]) {
+                return i;
             }
         }
     }
+    return -1;
+}
 
-    return pos;
+int main() {
+    char s1[] = "Hello World";
+    char s2[] = " ";
+    printf("%d", any(s1, s2));
 }
 ```
 
