@@ -333,7 +333,8 @@ int main() {
 
 标准头文件 ``<ctype.h>`` 定义了一组与字符集无关的测试和转换函数。
 
-C语言的定义保证了机器的标准打印字符集中的字符不会是负值，在表达式中这些字符总是正值。但，存储在字符变量中的位模式在某些机器中可能是负数，另一些则为正数。为了保证程序的可移植性，char 类型的变量中存储非字符数据，最好指定 signed 或 unsigned 限定符。
+C语言的定义保证了机器的标准打印字符集中的字符不会是负值，在表达式中这些字符总是正值。但，存储在字符变量中的位模式在某些机器中可能是负数，另一些则为正数。为了保证程序的可移植性，char
+类型的变量中存储非字符数据，最好指定 signed 或 unsigned 限定符。
 
 转换规则：
 
@@ -343,9 +344,11 @@ C语言的定义保证了机器的标准打印字符集中的字符不会是负�
 * 将 char 与 short 类型的操作数转化为 int 类型；
 * 如果其中一个操作数的类型为 long，则将另一个操作数也转换为 long 类型。
 
-**float类型的操作数不回自动转换为double类型**, 一般数学计算使用双精度类型的变量，使用float类型主要是为了在使用较大的数组时节省存储空间，有时也为了节省机器执行时间（双精度算数运算特别费时）。
+**float类型的操作数不回自动转换为double类型**,
+一般数学计算使用双精度类型的变量，使用float类型主要是为了在使用较大的数组时节省存储空间，有时也为了节省机器执行时间（双精度算数运算特别费时）。
 
-当表达式中包含了unsigned类型的操作数时，转换会变得复杂。原因在于带符号的运算会与机器相关，他们取决机器不同整数类型的大小。例如，假定int类型为16位，long为32位，那么，-1L<1U，这是因为unsigned int类型会被转换为signed long类型。但-1L>1UL，因为signed long会被转换为unsigned long类型。
+当表达式中包含了unsigned类型的操作数时，转换会变得复杂。原因在于带符号的运算会与机器相关，他们取决机器不同整数类型的大小。例如，假定int类型为16位，long为32位，那么，-1L<
+1U，这是因为unsigned int类型会被转换为signed long类型。但-1L>1UL，因为signed long会被转换为unsigned long类型。
 
 赋值运算符右边的值需要转换为左边变量的类型，左边变量的类型即赋值表达式结果的类型。
 
@@ -554,24 +557,41 @@ int main() {
 }
 ```
 
-#### 2.9 getbits 函数
+### 2.9 位运算
+
+> C语言提供了6个位操作运算符。这些运算符只能作用于整型操作数，即只能作用在有符号或无符号的``char、short、int与long类型``
+
+```
+& 按位与 (AND)
+| 按位或 (OR)  *相同为0，不同为1*
+^ 按位亦或 (XOR)
+<< 左移
+>> 右移
+～ 按位求反 (一位运算符)
+```
+
+移位运算符，右操作数的值必须是非负数，空位补0。*当对signed类型的带符号值进行右移，某些机器会用符号位填补，部分则是用0填补*
+
+**一元运算主要用于求整数的二进制反码**
+
+#### getbits 函数
 
 ```c
-#include <stdio.h>
+#include <printf.h>
 
-/* getbits函数: 返回x中从第p位开始的n位 */
+/* getbits函数：返回x中从第p位开始的n位 */
 unsigned getbits(unsigned x, int p, int n) {
     return (x >> (p + 1 - n)) & ~(~0 << n);
 }
 
-void printBinary(unsigned n, int len) {
-    for (int i = len - 1; i != -1; i--)
-        printf("%d", (n & (1 << i)) >> i );
-    putc('\n', stdout);
+void bin(unsigned n) {
+    for (unsigned i = 1 << 31; i > 0; i = i / 2)
+        (n & i) ? printf("1") : printf("0");
 }
 
 int main() {
-    printBinary(getbits(40, 4, 3), 3);
-    return 0;
+    bin(getbits(90, 3, 3));
 }
 ```
+
+* [getbits 理解](https://blog.csdn.net/AhogeK/article/details/120586792?spm=1001.2014.3001.5501)
