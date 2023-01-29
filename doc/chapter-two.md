@@ -595,3 +595,38 @@ int main() {
 ```
 
 * [getbits 理解](https://blog.csdn.net/AhogeK/article/details/120586792?spm=1001.2014.3001.5501)
+
+### 2.10 赋值运算符与表达式
+
+* [bitcount_test.c](../ChapterTwo/bitcount_test.c)
+
+```c
+#include <stdio.h>
+
+/**
+ * bitcount 函数：统计x中值为1的二进制位数
+ * @param x
+ * @return
+ */
+int bitcount(unsigned x) {
+    int b;
+    for (b = 0; x != 0; x >>= 1)
+        if (x & 01)
+            b++;
+    return b;
+}
+
+int main() {
+    unsigned int x = 40;
+    // will output 2
+    printf("%d", bitcount(x));
+}
+```
+
+上述代码中声明为*无符号*类型是为了保证x右移时，无论在什么机器上，左边的空位都为0填补
+
+**赋值运算符有助于编译器产生高效代码**
+
+**赋值语句具有值，且可以用在表达式中**
+
+* ``while ((c = getchar()) != EOF)``

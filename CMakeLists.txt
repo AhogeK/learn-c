@@ -3,7 +3,6 @@ project(learn_c C)
 
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_STANDARD 17)
 
 add_executable(1_2_1 ChapterOne/1_2_1.c)
 add_executable(1_2_2 ChapterOne/1_2_2.c)
@@ -24,6 +23,7 @@ add_executable(rand_set ChapterTwo/rand_test.c)
 add_executable(squeeze_test ChapterTwo/squeeze_test.c)
 add_executable(strcat_test ChapterTwo/strcat_test.c)
 add_executable(getbits_test ChapterTwo/getbits_test.c)
+add_executable(bitcount_test ChapterTwo/bitcount_test.c)
 
 add_executable(exercise_2_1 ChapterTwo/exercise_2_1.c)
 add_executable(exercise_2_3 ChapterTwo/exercise_2_3.c)
