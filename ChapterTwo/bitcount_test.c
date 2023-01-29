@@ -6,8 +6,6 @@
 
 /**
  * bitcount 函数：统计x中值为1的二进制位数
- * @param x
- * @return
  */
 int bitcount(unsigned x) {
     int b;
