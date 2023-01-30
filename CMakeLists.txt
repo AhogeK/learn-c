@@ -30,4 +30,6 @@ add_executable(exercise_2_3 ChapterTwo/exercise_2_3.c)
 add_executable(exercise_2_4 ChapterTwo/exercise_2_4.c)
 add_executable(exercise_2_5 ChapterTwo/exercise_2_5.c)
 
+add_executable(atoi_demo ChapterThree/atoi_demo.c)
+
 target_link_libraries(exercise_2_3 m)
