@@ -38,4 +38,6 @@ add_executable(static_inside_demo ChapterFour/static_inside_demo.c)
 add_executable(static_outside_demo ChapterFour/static_outside_demo.c ChapterFour/static_function.c)
 add_executable(register_demo ChapterFour/register_demo.c)
 
+add_executable(chapter_five_demo ChapterFive/chapter_five_demo.c)
+
 target_link_libraries(exercise_2_3 m)
