@@ -74,7 +74,28 @@ int main() {
     fp = sum;
     int s = fp(10, 15);
     printf("\nSum is %d\n", s);
-    return 0;
+
+    // Pointer and Array
+
+    // Array declaration and initialization
+    int arr[5] = {3, 5, 7, 9, 11};
+    // printing the addresses and values represented by arr, &arr and &arr[0]
+    printf("\n\narr : %p, Value : %d\n", arr, *arr);
+    printf("&arr : %p, Value : %d\n", &arr, *(arr));
+    printf("&arr[0] : %p, Value : %d\n", &arr[0], *(&arr[0]));
+
+    for (int i = 0; i < 5; i++) {
+        // printing the elements address and value at
+        // arr[i] using *(arr + i) syntax
+        printf("[index %d] Address : %p, Value : %d\n", i, (arr + i), *(arr + i));
+    }
+    // both `arr` and `&arr` return the address of the first element of the array.
+    int *ptr = arr;
+    // printing the elements of array using addition arithmetic on pointer
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", *(ptr + i));
+    }
+    printf("\n\n\n");
 }
 
 /**
