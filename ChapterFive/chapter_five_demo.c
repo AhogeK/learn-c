@@ -8,6 +8,8 @@ void swap(int *a, int *b);
 
 int *larger(int *, int *);
 
+int sum(int x, int y);
+
 void pointer() {
     int var = 10;
     int *ptr;
@@ -66,6 +68,12 @@ int main() {
     int const *p;
     p = larger(&a, &b);
     printf("\n\n%d is larger\n", *p);
+
+    // Pointer to Function
+    int (*fp)(int, int);
+    fp = sum;
+    int s = fp(10, 15);
+    printf("\nSum is %d\n", s);
     return 0;
 }
 
@@ -88,4 +96,8 @@ int *larger(int *x, int *y) {
     } else {
         return y;
     }
+}
+
+int sum(int x, int y) {
+    return x + y;
 }
