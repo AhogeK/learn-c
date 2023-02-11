@@ -6,6 +6,8 @@
 
 void swap(int *a, int *b);
 
+int *larger(int *, int *);
+
 void pointer() {
     int var = 10;
     int *ptr;
@@ -57,6 +59,13 @@ int main() {
     printf("After Swapping: \n\n");
     printf("m = %d\n", m);
     printf("n = %d\n", n);
+
+    // Functions returning Pointer Variables
+    int a = 15;
+    int b = 92;
+    int const *p;
+    p = larger(&a, &b);
+    printf("\n\n%d is larger\n", *p);
     return 0;
 }
 
@@ -71,4 +80,12 @@ void swap(int *a, int *b) {
     temp = *a;
     *a = *b;
     *b = temp;
+}
+
+int *larger(int *x, int *y) {
+    if (*x > *y) {
+        return x;
+    } else {
+        return y;
+    }
 }
