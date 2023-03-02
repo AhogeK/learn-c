@@ -291,7 +291,7 @@ for (i = 0; i < lim - 1; i++) {
 
 #### atoi函数
 
-[atoi_test.c](../ChapterTwo/atoi_test.c)
+[atoi_test.c](../chapter_two/atoi_test.c)
 
 ```c
 #include <stdio.h>
@@ -313,7 +313,7 @@ int main() {
 
 #### lower函数
 
-[lower_test.c](../ChapterTwo/lower_test.c)
+[lower_test.c](../chapter_two/lower_test.c)
 
 ```c
 #include <stdio.h>
@@ -358,7 +358,7 @@ C语言的定义保证了机器的标准打印字符集中的字符不会是负�
 
 #### rand与srand函数
 
-[rand_test.c](../ChapterTwo/rand_test.c)
+[rand_test.c](../chapter_two/rand_test.c)
 
 ```c
 #include <stdio.h>
@@ -387,7 +387,7 @@ int main() {
 > 编写函数htoi(s), 把由十六进制数字组成的字符串(包含可选的前缀0x或0X)转换为与之等价的整型值。
 > 字符串中允许包含的数字包括: 0 ~ 9, a ~ f 以及 A ~ F。
 
-[exercise_2_3.c](../ChapterTwo/exercise_2_3.c)
+[exercise_2_3.c](../chapter_two/exercise_2_3.c)
 
 ```c
 #include <string.h>
@@ -598,7 +598,7 @@ int main() {
 
 ### 2.10 赋值运算符与表达式
 
-* [bitcount_test.c](../ChapterTwo/bitcount_test.c)
+* [bitcount_test.c](../chapter_two/bitcount_test.c)
 
 ```c
 #include <stdio.h>

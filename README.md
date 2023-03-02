@@ -5,9 +5,9 @@
 ## 编译运行
 
 ```bash
-cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=ninja -G Ninja -S .. -B .
-cmake --build . --target clean -j 8
-cmake --build . --target all -j 8
+cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=ninja -G Ninja -S <源码目录> -B <编译结果目录>
+cmake --build <编译结果目录> --target clean -j 8
+cmake --build <编译结果目录> --target all -j 8
 ```
 
 ## C 程序设计语言
