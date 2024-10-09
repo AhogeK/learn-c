@@ -21,6 +21,7 @@ int main() {
     fprintf(file, "This is the third line with  consecutive spaces\n");
     fprintf(file, "This is the fourth line with a backspace character\b\n");
     fprintf(file, "This is the fifth line with a backslash \\\n");
+    fprintf(file, "0 11 222 3333 44444 555555 6666666 77777777 888888888 9999999999\n");
 
     fclose(file);
 
