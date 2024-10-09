@@ -6,12 +6,19 @@
 
 int main()
 {
+    FILE *file;
     int c;
     int space_count = 0;
     int tab_count = 0;
     int newline_count = 0;
 
-    while ((c = getchar()) != EOF)
+    file = fopen("../test.txt", "r");
+    if (file == NULL) {
+        perror("无法打开文件");
+        return 1;
+    }
+
+    while ((c = fgetc(file)) != EOF)
     {
         if (c == ' ')
             space_count++;
@@ -21,9 +28,11 @@ int main()
             newline_count++;
     }
 
-    printf("Spaces: %d\n", space_count);
-    printf("Tabs: %d\n", tab_count);
-    printf("Newlines: %d\n", newline_count);
+    fclose(file);
+
+    printf("%-10s: %5d\n", "Spaces", space_count);
+    printf("%-10s: %5d\n", "Tabs", tab_count);
+    printf("%-10s: %5d\n", "Newlines", newline_count);
 
     return 0;
 }
