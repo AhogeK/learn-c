@@ -1,4 +1,5 @@
-This is a file used to test reads.
-	Here is the second line.
-Hello World!
-0 99 888 777 6666 55555 444444 3333333 2 1
+This is the first line with spaces
+This is the second line with a tab character	
+This is the third line with  consecutive spaces
+This is the fourth line with a backspace character
+This is the fifth line with a backslash \

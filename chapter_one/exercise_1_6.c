@@ -1,4 +1,5 @@
 //
+// 验证表达式 getchar() != EOF 的值是 0 还是 1。
 // Created by Jonah Shi on 10/9/24.
 //
 
