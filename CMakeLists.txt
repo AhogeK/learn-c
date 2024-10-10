@@ -31,6 +31,7 @@ add_executable(exercise_1_12 chapter_one/exercise_1_12.c)
 add_executable(exercise_1_13 chapter_one/exercise_1_13.c)
 add_executable(exercise_1_14 chapter_one/exercise_1_14.c)
 add_executable(exercise_1_15 chapter_one/exercise_1_15.c)
+add_executable(exercise_1_16 chapter_one/exercise_1_16.c)
 
 add_executable(2_3 chapter_two/2_3.c)
 add_executable(strlen_test chapter_two/strlen_test.c)
