@@ -6,7 +6,7 @@
 #include <stdio.h>
 #define MAXLINE 1000 /* 允许输入行的最大长度 */
 
-int getLine(char line[], int maxline, FILE* file);
+int get_line(char line[], int maxline, FILE* file);
 void copy(char to[], char from[]);
 
 /* 打印最长的输入行 */
@@ -26,7 +26,7 @@ int main()
     }
 
     max = 0;
-    while ((len = getLine(line, MAXLINE, file)) > 0)
+    while ((len = get_line(line, MAXLINE, file)) > 0)
     {
         if (len > max)
         {
@@ -46,7 +46,7 @@ int main()
 }
 
 /* getLine函数：将一行读入到s中并返回其长度 */
-int getLine(char line[], int maxline, FILE* file)
+int get_line(char line[], int maxline, FILE* file)
 {
     int c, i;
 

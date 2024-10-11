@@ -8,7 +8,7 @@
 
 #define INITIAL_BUFFER_SIZE 1000
 
-char* getLine(FILE* file, int* len);
+char* get_line(FILE* file, int* len);
 char* resizeBuffer(char* buffer, int* capacity);
 
 /* 修改 1_9_1.c 代码，使之可以打印任意长度的输入行的长度，并尽可能多地打印文本 */
@@ -25,7 +25,7 @@ int main()
         return 1;
     }
 
-    while ((line = getLine(file, &len)) != NULL)
+    while ((line = get_line(file, &len)) != NULL)
     {
         printf("行长度：%d\n", len);
         printf("行内容：%s\n", line);
@@ -51,7 +51,7 @@ int main()
     return 0;
 }
 
-char* getLine(FILE* file, int* len)
+char* get_line(FILE* file, int* len)
 {
     int capacity = INITIAL_BUFFER_SIZE;
     char* buffer = malloc(capacity);

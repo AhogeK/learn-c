@@ -6,7 +6,7 @@
 #define MAX_LINE 1000
 #define MIN_LEN 80
 
-int getLine(char line[], int maxLine, FILE* file);
+int get_line(char line[], int maxLine, FILE* file);
 int copy(char to[], char from[]);
 
 /* 打印长度大于80个字符的所有输入行 */
@@ -18,7 +18,7 @@ int main()
 
     FILE* file = fopen("../test.txt", "r");
 
-    while ((len = getLine(line, MAX_LINE, file)) > 0)
+    while ((len = get_line(line, MAX_LINE, file)) > 0)
         if (len > MIN_LEN)
             printf("%s", line);
 
@@ -27,7 +27,7 @@ int main()
     return 0;
 }
 
-int getLine(char line[], int maxLine, FILE* file)
+int get_line(char line[], int maxLine, FILE* file)
 {
     int i, c;
 
