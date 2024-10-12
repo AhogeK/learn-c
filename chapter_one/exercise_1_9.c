@@ -7,7 +7,7 @@
 
 int main()
 {
-    FILE *file;
+    FILE* file;
     int c;
     int last_char_was_space = 0; // 上一个字符是否是空格
     int index = 0;

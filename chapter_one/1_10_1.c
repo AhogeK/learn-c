@@ -48,7 +48,7 @@ int get_line()
 {
     int c, i;
     extern char line[];
-    extern FILE *file;
+    extern FILE* file;
 
     for (i = 0; i < MAX_LINE - 1 && (c = fgetc(file)) != EOF && c != '\n'; ++i)
         line[i] = c;

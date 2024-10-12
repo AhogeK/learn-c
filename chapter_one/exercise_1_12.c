@@ -10,7 +10,7 @@
 
 int main()
 {
-    FILE *file;
+    FILE* file;
     int c;
     int state = OUT;
 

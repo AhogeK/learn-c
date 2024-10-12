@@ -7,6 +7,6 @@
 
 int main()
 {
-    char const *str = "Hello, World";
+    char const* str = "Hello, World";
     printf("%lu\n", strlen(str));
 }

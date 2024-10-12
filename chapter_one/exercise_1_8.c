@@ -7,14 +7,15 @@
 
 int main()
 {
-    FILE *file;
+    FILE* file;
     int c;
     int space_count = 0;
     int tab_count = 0;
     int newline_count = 0;
 
     file = fopen("../test.txt", "r");
-    if (file == NULL) {
+    if (file == NULL)
+    {
         perror("无法打开文件");
         return 1;
     }

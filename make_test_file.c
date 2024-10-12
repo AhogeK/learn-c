@@ -5,12 +5,14 @@
 
 #include <stdio.h>
 
-int main() {
-    FILE *file;
-    const char *filename = "../test.txt";
+int main()
+{
+    FILE* file;
+    const char* filename = "../test.txt";
 
     file = fopen(filename, "w");
-    if (file == NULL) {
+    if (file == NULL)
+    {
         perror("无法创建文件");
         return 1;
     }

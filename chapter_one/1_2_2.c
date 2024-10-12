@@ -11,16 +11,15 @@
  */
 int main()
 {
-
     float fahrenheit;
     float celsius;
     float lower;
     float upper;
     float step;
 
-    lower = 0;   /* 温度表的下限 */
+    lower = 0; /* 温度表的下限 */
     upper = 300; /* 温度表的上限 */
-    step = 20;   /* 步长 */
+    step = 20; /* 步长 */
 
     fahrenheit = lower;
     while (fahrenheit <= upper)

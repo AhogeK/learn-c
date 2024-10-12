@@ -7,11 +7,12 @@
 
 int main()
 {
-    FILE *file;
+    FILE* file;
     int c;
 
     file = fopen("../test.txt", "r");
-    if (file == NULL) {
+    if (file == NULL)
+    {
         perror("无法打开文件");
         return 1;
     }

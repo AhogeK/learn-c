@@ -5,28 +5,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void swap(int *a, int *b);
+void swap(int* a, int* b);
 
-int *larger(int *, int *);
+int* larger(int*, int*);
 
 int sum(int x, int y);
 
 void pointer()
 {
     int var = 10;
-    int *ptr;
+    int* ptr;
     ptr = &var;
 
-    printf("var: %d\n", var);   // 10
-    printf("ptr: %p\n", ptr);   // 0x16ee22c64
+    printf("var: %d\n", var); // 10
+    printf("ptr: %p\n", ptr); // 0x16ee22c64
     printf("*ptr: %d\n", *ptr); // 10
 
     *ptr = 20;
-    printf("change 20 ptr: %p\n", ptr);     // 0x16ee22c64
-    printf("change 20 *ptr: %d\n", *ptr);   // 20
+    printf("change 20 ptr: %p\n", ptr); // 0x16ee22c64
+    printf("change 20 *ptr: %d\n", *ptr); // 20
 
     int v[] = {100, 200, 300};
-    int *vPtr;
+    int* vPtr;
     vPtr = v;
     // 上两行的操作相当于 ``int *vPtr = &v[i]``
     // vPtr same can use vPtr[0] vPtr[1] vPtr[2]
@@ -38,14 +38,14 @@ void pointer()
     }
 
     // void pointer
-    void const *voidPointer = NULL;
+    void const* voidPointer = NULL;
     printf("The size of voidPointer: %lu\n", sizeof(voidPointer)); // 8
 
     // null pointer
-    int const *nullPointer = NULL;
-    printf("This is NULL pointer: %x\n", nullPointer);  // 0
-    printf("NULL: %d\n", NULL);                         // 0
-    printf("sizeof(NULL): %lu", sizeof(NULL));          // 8
+    int const* nullPointer = NULL;
+    printf("This is NULL pointer: %x\n", nullPointer); // 0
+    printf("NULL: %d\n", NULL); // 0
+    printf("sizeof(NULL): %lu", sizeof(NULL)); // 8
 
     // wild pointer (野指针)
     // int *wildPointer;
@@ -56,7 +56,7 @@ void pointer()
 void mallocDemo()
 {
     // This pointer will hold the base address of the block created
-    int *ptr;
+    int* ptr;
     int n, i;
 
     // Get the number of elements for the array;
@@ -66,7 +66,7 @@ void mallocDemo()
     printf("Entered number of elements: %d\n", n);
 
     // Dynamically allocate memory using malloc()
-    ptr = (int *) malloc(n * sizeof(int));
+    ptr = (int*)malloc(n * sizeof(int));
 
     // Check if the memory has been successfully allocated by malloc or not
     if (ptr == NULL)
@@ -98,7 +98,7 @@ void mallocDemo()
 void callocDemo()
 {
     // This pointer will hold the base address of the block created
-    int *ptr;
+    int* ptr;
     int n, i;
 
     // Get the number of elements for the array
@@ -106,7 +106,7 @@ void callocDemo()
     printf("Enter number of elements: %d\n", n);
 
     // Dynamically allocate memory using calloc()
-    ptr = (int *) calloc(n, sizeof(int));
+    ptr = (int*)calloc(n, sizeof(int));
 
     // Check if the memory has been successfully
     // allocated by calloc or not
@@ -117,7 +117,6 @@ void callocDemo()
     }
     else
     {
-
         // Memory has been successfully allocated
         printf("Memory successfully allocated using calloc.\n");
 
@@ -141,7 +140,7 @@ void reallocDemo()
 {
     // This pointer will hold the
     // base address of the block created
-    int *ptr;
+    int* ptr;
     int n, i;
 
     // Get the number of elements for the array
@@ -149,7 +148,7 @@ void reallocDemo()
     printf("Enter number of elements: %d\n", n);
 
     // Dynamically allocate memory using calloc()
-    ptr = (int *) calloc(n, sizeof(int));
+    ptr = (int*)calloc(n, sizeof(int));
 
     // Check if the memory has been successfully
     // allocated by malloc or not
@@ -160,7 +159,6 @@ void reallocDemo()
     }
     else
     {
-
         // Memory has been successfully allocated
         printf("Memory successfully allocated using calloc.\n");
 
@@ -222,7 +220,7 @@ int main()
     // Functions returning Pointer Variables
     int a = 15;
     int b = 92;
-    int const *p;
+    int const* p;
     p = larger(&a, &b); // 返回最大的指针值
     printf("\n\n%d is larger\n", *p); // 92
 
@@ -249,7 +247,7 @@ int main()
         printf("[index %d] Address : %p, Value : %d\n", i, (arr + i), *(arr + i));
     }
     // both `arr` and `&arr` return the address of the first element of the array.
-    int *ptr = arr;
+    int* ptr = arr;
     // printing the elements of array using addition arithmetic on pointer
     for (int i = 0; i < 5; i++)
     {
@@ -270,7 +268,7 @@ int main()
  * @param a to swap b
  * @param b  to swap a
  */
-void swap(int *a, int *b)
+void swap(int* a, int* b)
 {
     int temp;
     temp = *a;
@@ -278,7 +276,7 @@ void swap(int *a, int *b)
     *b = temp;
 }
 
-int *larger(int *x, int *y)
+int* larger(int* x, int* y)
 {
     if (*x > *y)
     {

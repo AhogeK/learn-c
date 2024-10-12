@@ -42,7 +42,7 @@ void trim_trailing_whitespace(char* line)
     int i = strlen(line) - 1;
     while (i >= 0 && (isspace(line[i]) || line[i] == '\n'))
     {
-        line[i] ='\0';
+        line[i] = '\0';
         --i;
     }
     strcat(line, "\n");

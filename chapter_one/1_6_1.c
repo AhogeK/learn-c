@@ -5,13 +5,15 @@
 #include <stdio.h>
 
 /* 统计各个数字、空白符及其他字符出现次数 */
-int main() {
-    FILE *file;
+int main()
+{
+    FILE* file;
     int c, i, nwhite, nother;
     int ndigit[10];
 
     file = fopen("../test.txt", "r");
-    if (file == NULL) {
+    if (file == NULL)
+    {
         perror("无法打开文件");
         return 1;
     }

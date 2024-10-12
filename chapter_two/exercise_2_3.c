@@ -18,7 +18,7 @@ int htoi(const char s[])
     }
     int sum = 0;
     int index = 0;
-    for (int i = (int) size - 1; i >= 0; i--)
+    for (int i = (int)size - 1; i >= 0; i--)
     {
         int dec = 0;
         if ((i == 0 && s[i] != '0') || (i == 1 && s[i] != 'x' && s[i] != 'X'))
@@ -40,10 +40,10 @@ int htoi(const char s[])
             }
             else
             {
-                char c = (char) toupper(s[i]);
+                char c = (char)toupper(s[i]);
                 dec = c - 'A' + 10;
             }
-            sum += dec * (int) pow(16, index);
+            sum += dec * (int)pow(16, index);
             index++;
         }
     }

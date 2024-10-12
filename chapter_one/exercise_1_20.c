@@ -29,7 +29,8 @@ void detab()
                 putchar(' ');
                 ++column;
             }
-        } else
+        }
+        else
         {
             putchar(c);
             column++;
@@ -37,7 +38,6 @@ void detab()
                 column = 0;
         }
     }
-
 }
 
 int main()
