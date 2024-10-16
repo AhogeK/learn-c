@@ -56,6 +56,7 @@ add_executable(exercise_2_2 chapter_two/exercise_2_2.c)
 add_executable(exercise_2_3 chapter_two/exercise_2_3.c)
 add_executable(exercise_2_4 chapter_two/exercise_2_4.c)
 add_executable(exercise_2_5 chapter_two/exercise_2_5.c)
+add_executable(exercise_2_6 chapter_two/exercise_2_6.c)
 
 add_executable(atoi_demo chapter_three/atoi_demo.c)
 
