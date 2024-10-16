@@ -5,18 +5,20 @@
 //
 
 #include <stdio.h>
+#include <stdint.h>
+#include <assert.h>
 
-unsigned int setbits(unsigned int x, int p, int n, unsigned int y);
-void print_binary(unsigned int num);
+uint32_t setbits(uint32_t x, size_t p, size_t n, uint32_t y);
+void print_binary(uint32_t num);
 
-int main()
+int main(void)
 {
-    unsigned int x = 0b00101111;
-    unsigned int y = 0b11001100;
-    int p = 7;
-    int n = 4;
+    uint32_t x = 0b00101111;
+    uint32_t y = 0b11001100;
+    size_t p = 7;
+    size_t n = 4;
 
-    unsigned int result = setbits(x, p, n, y);
+    uint32_t result = setbits(x, p, n, y);
 
     printf("x     = ");
     print_binary(x);
@@ -27,41 +29,36 @@ int main()
     printf("结果  = ");
     print_binary(result);
 
-    printf("p = %d, n = %d\n", p, n);
+    printf("p = %zu, n = %zu\n", p, n);
 
     return 0;
 }
 
-unsigned int setbits(unsigned int x, int p, int n, unsigned int y)
+uint32_t setbits(uint32_t x, size_t p, size_t n, uint32_t y)
 {
+    assert(p < 32 && n <= p + 1 && "p 和 n 的值不合法");
+
     // 创建一个掩码，其中要修改的位为1，其他位为0
-    unsigned int mask = ~(~0 << n) << p + 1 - n;
+    uint32_t mask = ~(~0u << n) << p + 1 - n;
 
     // 清除x中要修改的位
     x = x & ~mask;
 
-    // 从y中提取最右边的n位
-    unsigned int y_bits = y & ~(~0 << n);
-
-    // 将y的位移动到正确的位置
-    y_bits = y_bits << (p + 1 - n);
+    // 从y中提取最右边的n位，并移动到正确的位置
+    uint32_t y_bits = (y & ~(~0u << n)) << p + 1 - n;
 
     // 将修改后的位与x组合
     return x | y_bits;
 }
 
-void print_binary(unsigned int num)
+void print_binary(uint32_t num)
 {
-    int i;
-    unsigned int mask = 1U << 31; // 假设是32位整数
-
-    for (i = 0; i < 32; i++)
+    for (int i = 31; i >= 0; i--)
     {
-        putchar((num & mask) ? '1' : '0');
-        mask >>= 1;
-        if ((i + 1) % 8 == 0 && i < 31)
+        putchar((num & (1u << i)) ? '1' : '0');
+        if (i % 8 == 0 && i > 0)
         {
-            putchar(' '); // 每8位添加一个空格，提高可读性
+            putchar(' ');
         }
     }
     putchar('\n');
