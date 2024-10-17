@@ -63,6 +63,7 @@ add_executable(exercise_2_9 chapter_two/exercise_2_9.c)
 add_executable(exercise_2_10 chapter_two/exercise_2_10.c)
 
 add_executable(atoi_demo chapter_three/atoi_demo.c)
+add_executable(exercise_3_1 chapter_three/exercise_3_1.c)
 
 add_executable(chapter_four_demo chapter_four/chapter_four_demo.c)
 add_executable(extern_demo chapter_four/extern_demo.c)
