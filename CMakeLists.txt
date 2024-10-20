@@ -76,6 +76,7 @@ add_executable(extern_demo chapter_four/extern_demo.c)
 add_executable(static_inside_demo chapter_four/static_inside_demo.c)
 add_executable(static_outside_demo chapter_four/static_outside_demo.c chapter_four/static_function.c)
 add_executable(register_demo chapter_four/register_demo.c)
+add_executable(exercise_4_1 chapter_four/exercise_4_1.c)
 
 add_executable(chapter_five_demo chapter_five/chapter_five_demo.c)
 
