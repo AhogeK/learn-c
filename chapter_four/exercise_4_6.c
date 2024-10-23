@@ -63,7 +63,7 @@ double last_printed_value = 0;
 
 int perform_operation(Stack* s, const char* op)
 {
-    double op1, op2, result;
+    double op1, op2, result = 0;
     if (strcmp(op, "+") == 0 || strcmp(op, "-") == 0 || strcmp(op, "*") == 0 || strcmp(op, "/") == 0)
     {
         if (stack_pop(s, &op1) != 0 || stack_pop(s, &op2) != 0) return -1;
@@ -159,17 +159,16 @@ int evaluate_rpn(const char* expression, double* result)
             variable_set[index] = 1;
             *result = num;
             last_printed_value = num;
-            return 0;
         }
-        else if (isalpha(tokens[0][0]) && strlen(tokens[0]) == 1 && parse_number(tokens[1], &num) == 0)
+        if (isalpha(tokens[0][0]) && strlen(tokens[0]) == 1 && parse_number(tokens[1], &num) == 0)
         {
             int index = tolower(tokens[0][0]) - 'a';
             variables[index] = num;
             variable_set[index] = 1;
             *result = num;
             last_printed_value = num;
-            return 0;
         }
+        return 0;
     }
 
     // 进行逆波兰计算
