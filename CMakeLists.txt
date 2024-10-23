@@ -89,6 +89,7 @@ add_executable(exercise_4_10 chapter_four/exercise_4_10.c)
 add_executable(exercise_4_11 chapter_four/exercise_4_11.c)
 add_executable(exercise_4_12 chapter_four/exercise_4_12.c)
 add_executable(exercise_4_13 chapter_four/exercise_4_13.c)
+add_executable(exercise_4_14 chapter_four/exercise_4_14.c)
 
 add_executable(chapter_five_demo chapter_five/chapter_five_demo.c)
 
