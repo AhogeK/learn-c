@@ -95,5 +95,6 @@ add_executable(chapter_five_demo chapter_five/chapter_five_demo.c)
 add_executable(exercise_5_1 chapter_five/exercise_5_1.c)
 add_executable(exercise_5_2 chapter_five/exercise_5_2.c)
 add_executable(exercise_5_3 chapter_five/exercise_5_3.c)
+add_executable(exercise_5_4 chapter_five/exercise_5_4.c)
 
 target_link_libraries(exercise_2_3 m)
