@@ -103,4 +103,6 @@ add_executable(exercise_5_8 chapter_five/exercise_5_8.c)
 add_executable(exercise_5_9 chapter_five/exercise_5_9.c)
 add_executable(exercise_5_10 chapter_five/exercise_5_10.c)
 
+add_executable(chapter_six_struct_alignment chapter_six/struct_alignment.c)
+
 target_link_libraries(exercise_2_3 m)
